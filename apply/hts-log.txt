@@ -1,0 +1,20 @@
+HTTrack3.49-2+htsswf+htsjava launched on Wed, 12 Jul 2023 09:53:18 at https://apply07.grants.gov/apply/register.faces +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qw%e0C2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://apply07.grants.gov/apply/register.faces -O1 "C:\Users\USER\Desktop\All\Aaaa\all files\grant\apply" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+09:54:38	Error: 	"Not Found" (404) at link https://apply07.grants.gov/images/grants/banner-background.gif (from https://apply07.grants.gov/apply/register.faces)
+09:54:38	Error: 	"Not Found" (404) at link https://apply07.grants.gov/apply/css/images/ui-bg_highlight-soft_75_1E90FF_1x100.png (from https://apply07.grants.gov/apply/css/ggPrimefaces.css)
+09:54:38	Error: 	"Not Found" (404) at link https://apply07.grants.gov/apply/css/images/ui-bg_glass_55_cccccc_1x400.png (from https://apply07.grants.gov/apply/css/ggPrimefaces.css)
+09:54:58	Warning: 	File not parsed, looks like binary: https://apply07.grants.gov/apply/css/font-awesome-4.5.0/fonts/fontawesome-webfont.eot?v=4.5.0
+09:54:58	Warning: 	File not parsed, looks like binary: https://apply07.grants.gov/apply/css/font-awesome-4.5.0/fonts/fontawesome-webfont.eot?
+09:54:58	Warning: 	File not parsed, looks like binary: https://apply07.grants.gov/apply/css/font-awesome-4.5.0/fonts/fontawesome-webfont.woff2?v=4.5.0
+09:54:58	Warning: 	File not parsed, looks like binary: https://apply07.grants.gov/apply/css/font-awesome-4.5.0/fonts/fontawesome-webfont.woff?v=4.5.0
+09:54:58	Warning: 	File not parsed, looks like binary: https://apply07.grants.gov/apply/css/font-awesome-4.5.0/fonts/fontawesome-webfont.ttf?v=4.5.0
+09:55:11	Error: 	"Not Found" (404) at link https://apply07.grants.gov/apply/images/forms/input_shadow.png (from https://apply07.grants.gov/apply/css/grants.css)
+
+HTTrack Website Copier/3.49-2 mirror complete in 1 minutes 53 seconds : 95 links scanned, 90 files written (3175357 bytes overall) [3411278 bytes received at 30188 bytes/sec]
+(4 errors, 5 warnings, 0 messages)

@@ -1,0 +1,160 @@
+/**********************************************/
+/*     GRANTS.GOV Navigation CSS Document     */
+/*  This file is included in Liferay main.css */
+/*            Created OCT 22 2012             */
+/**********************************************/
+
+#topnav ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	cursor: default; 
+	width: auto; 
+}
+
+/*Top level list items*/
+#topnav ul li{
+	position: relative;
+	display: inline-block;
+	float: left;
+	text-wrap:none;
+	cursor: pointer;
+	vertical-align:text-bottom;
+	border-right: 1px solid #092c59;
+}
+
+/*Top level menu link items style*/
+#topnav ul li a{
+	display: block;
+	padding: 5px 15px 0px 15px;
+	border-right: 1px solid #1d4575;   
+	border-left: 1px solid #1d4575;
+	height: 25px;
+}
+
+#topnav ul li a.parent:link, #topnav ul li a.parent:visited  {
+	background-image:url('../images/grants/icon-menu-down.gif');
+ 	background-repeat:no-repeat;
+ 	background-position:95% 40%; 	
+}
+
+#topnav ul li a.parent:active, #topnav ul li a.parent:hover, #topnav ul li.selected a.parent  {
+	background-image:url('../images/grants/icon-menu-down-hover.gif');
+ 	background-repeat:no-repeat;
+ 	background-position:95% 40%;
+}
+	
+#topnav ul li a:link, #topnav ul li a:visited  {
+	font-family:  Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #ffffff;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+#topnav ul li a:active, #topnav ul li a:hover {
+	font-family:  Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #ffffff;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+#topnav ul li:active, #topnav ul li:hover, #topnav .selected {
+	background-color: dodgerblue;
+	border-top-left-radius: 9px; border-top-right-radius: 9px; -webkit-border-top-left-radius: 9px; -webkit-border-top-right-radius: 9px; -moz-border-top-left-radius: 9px; -moz-border-top-right-radius: 9px; -o-border-top-left-radius: 9px; -o-border-top-right-radius: 9px; -khtml-border-top-left-radius: 9px; -khtml-border-top-right-radius: 9px;
+	box-shadow: rgba(0,0,0,0.35) 0 1px 3px inset; -webkit-box-shadow: rgba(0,0,0,0.35) 0 1px 3px inset; -moz-box-shadow: rgba(0,0,0,0.35) 0 1px 3px inset;
+	box-shadow-bottom: none; -webkit-box-shadow-bottom: none; -moz-box-shadow-bottom: none;
+	}
+
+#LearnGrants-tab :active, #LearnGrants-tab :hover, #LearnGrants-tab.selected {
+	background-color: #C1272D;
+	box-shadow: rgba(0,0,0,0.35) 0 1px 3px inset; -webkit-box-shadow: rgba(0,0,0,0.35) 0 1px 3px inset; -moz-box-shadow: rgba(0,0,0,0.35) 0 1px 3px inset;
+	box-shadow-bottom: none; -webkit-box-shadow-bottom: none; -moz-box-shadow-bottom: none;
+}
+
+
+#topnav .last, #topnav ul li#support-tab {border-right:none;}
+#topnav ul li #support-tab, #support-tab a   {border-right: none;}
+
+
+/*Megamenu Drop-down Menus--Prefaced with "gg" to avoid Liferay Conflicts */
+.gg-megamenu{
+	position: absolute;
+	display: none;
+	left: 0;
+	top: 0;
+	background: white;
+	border: 5px solid DodgerBlue;
+	margin: 0px;
+	padding: 0px 0px 0px 10px;
+	max-width: 500px !important;
+	font: normal 12px Arial, Helvetica, sans-serif;
+	z-index: 100;
+	box-shadow: rgba(0,0,0,0.35) 0 1px 3px; -webkit-box-shadow: rgba(0,0,0,0.35) 0 1px 3px; -moz-box-shadow: rgba(0,0,0,0.35) 0 1px 3px;
+	border-bottom-left-radius: 9px; border-bottom-right-radius: 9px; -webkit-border-bottom-left-radius: 9px; -webkit-border-bottom-right-radius: 9px; -moz-border-bottom-left-radius: 9px; -moz-border-bottom-right-radius: 9px; -o-border-bottom-left-radius: 9px; -o-border-bottom-right-radius: 9px; -khtml-border-bottom-left-radius: 9px; -khtml-border-bottom-right-radius: 9px;
+}
+
+#LearnGrants-menu{
+	border: 5px solid #C1272D;
+}
+
+
+
+ .gg-megamenu .column{
+	float: left;
+	max-width: 300px; 
+	margin-right: 20px;
+	margin-bottom: 10px;
+} 
+
+/*Custom Syle to handle Grantors Menu*/
+#Grantors-menu .column, #grantors-menu .column {width:220px; min-height:120px;}
+
+.gg-megamenu h2{
+	color:navy;
+	font: 24px Arial, Helvetica, sans-serif;
+	margin: 5px 0 5px 0;
+}
+
+.gg-megamenu .column h3{
+	color:navy;
+	text-transform: uppercase;
+	font: bold 12px Arial, Helvetica, sans-serif;
+	margin: 5px 0 5px 0;
+}
+
+.gg-megamenu .column h3 a{
+	text-decoration: none;
+	color: navy;
+}
+
+.gg-megamenu .column h3 a:hover{
+	color: #cc0000;
+}
+
+.gg-megamenu .column ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.gg-megamenu .column ul li{
+	padding: 0 0 2px 10px;
+	background-image:url('../images/grants/icon-bullet.png');
+	background-position: 0% 50%;
+	background-repeat:no-repeat;
+}
+
+.gg-megamenu .column ul li:hover {
+	background-image:url('../images/grants/icon-bullet-hover.png');	
+}
+
+.gg-megamenu .column ul li a{
+	text-decoration: none;
+	color: navy;
+}
+
+.gg-megamenu .column ul li a:hover{
+	color: #cc0000;
+}
