@@ -1,0 +1,2188 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xml:lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:csrf="http://www.owasp.org/index.php/Category:OWASP_CSRFGuard_Project/Owasp.CsrfGuard.tld"
+>
+  <!-- Mirrored from apply07.grants.gov/apply/register.faces by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Jul 2023 08:53:20 GMT -->
+  <!-- Added by HTTrack --><meta
+    http-equiv="content-type"
+    content="text/html;charset=UTF-8"
+  /><!-- /Added by HTTrack -->
+  <head id="j_idt2">
+    <title>Registration</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link
+      href="css/style.css"
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+    />
+    <link
+      href="jsf/jsfStyles.css"
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+    />
+    <link
+      href="jsf/search.css"
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+    />
+    <link
+      href="css/jsfRoundedBox.css"
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+    />
+    <link
+      href="SpryAssets/SpryTabbedPanels.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="SpryAssets/SpryMenuBarHorizontal.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link href="css/ggPrimefaces.css" rel="stylesheet" type="text/css" />
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/font-awesome-4.5.0/css/font-awesome.css"
+    />
+
+    <!-- remove loading jquery 1.8.3, and use jquery 1.11.0 bundled with PrimeFaces instead.
+    	&lt;script type="text/javascript" src="/apply/js/jquery-1.8.3.js"&gt;&lt;/script&gt;
+     -->
+
+    <!-- <script type="text/javascript" src="js/ui/1.12.1/jquery-ui.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- <script
+      type="text/javascript"
+      src="js/jquery/jquery-migrate-3.0.0.min.js"
+    ></script> -->
+
+    <!-- removing to do primefaces upgrade
+		&lt;script type="text/javascript" src="/apply/js/ui/1.10.3/jquery-ui.js"&gt;&lt;/script&gt; -->
+    <!-- <script type="text/javascript" src="js/jkmegamenu.js"></script>
+    <script type="text/javascript" src="js/datatable-custom.js"></script>
+    <script type="text/javascript" src="js/classList.js"></script>
+    <script type="text/javascript" src="js/main.js"></script> -->
+  </head>
+  <body id="entirePage" onload="init();">
+    <div id="wrapper" class="noPrintBorder">
+      <div id="header" class="LandscapeDiv">
+        <span id="navScript">
+          <script type="text/javascript">
+            var menuItems = []
+            var menuCount = 0
+            var webUrl = 'https://www.grants.gov/'
+            var exitUrl = 'https://www.grants.gov/custom/spoEntry.jsp?p='
+            var applyUrl = 'index.html'
+            var logoutURL = 'LogoutAllb2a0.html'
+            var isApplicant = false
+            var isGrantor = false
+            var isWorkspacePartner = false
+            var isAuthorized = false
+            var isApplicantIndv = false
+            var isEbiz = false
+            var isApplicantOrg = false
+            var isUser = false
+            var activities = []
+            var isConnect = false
+            var isEmailDuplicate = false
+            var connectActivities = []
+            var navData = {
+              topNavItems: [
+                {
+                  layoutId: 474,
+                  levelNumber: 1,
+                  parentLayoutId: 0,
+                  navName: 'Home',
+                  friendlyURL: '/web/grants/home.html',
+                  pageURL: 'web/grants/home.html',
+                  priority: 0,
+                  childCount: 0,
+                  parentName: 'root',
+                },
+                {
+                  layoutId: 763,
+                  levelNumber: 1,
+                  parentLayoutId: 0,
+                  navName: 'Learn Grants',
+                  friendlyURL: '/web/grants/learn-grants.html',
+                  pageURL: 'web/grants/learn-grants.html',
+                  priority: 1,
+                  childCount: 60,
+                  parentName: 'root',
+                },
+                {
+                  layoutId: 480,
+                  levelNumber: 1,
+                  parentLayoutId: 0,
+                  navName: 'Search Grants',
+                  friendlyURL: '/web/grants/search-grants.html',
+                  pageURL: 'web/grants/search-grants.html',
+                  priority: 2,
+                  childCount: 0,
+                  parentName: 'root',
+                },
+                {
+                  layoutId: 481,
+                  levelNumber: 1,
+                  parentLayoutId: 0,
+                  navName: 'Applicants',
+                  friendlyURL: '/web/grants/applicants.html',
+                  pageURL: 'web/grants/applicants.html',
+                  priority: 4,
+                  childCount: 14,
+                  parentName: 'root',
+                },
+                {
+                  layoutId: 464,
+                  levelNumber: 1,
+                  parentLayoutId: 0,
+                  navName: 'Grantors',
+                  friendlyURL: '/web/grants/grantors.html',
+                  pageURL: 'web/grants/grantors.html',
+                  priority: 5,
+                  childCount: 6,
+                  parentName: 'root',
+                },
+                {
+                  layoutId: 509,
+                  levelNumber: 1,
+                  parentLayoutId: 0,
+                  navName: 'System-to-System',
+                  friendlyURL: '/web/grants/system-to-system.html',
+                  pageURL: 'web/grants/system-to-system.html',
+                  priority: 6,
+                  childCount: 20,
+                  parentName: 'root',
+                },
+                {
+                  layoutId: 562,
+                  levelNumber: 1,
+                  parentLayoutId: 0,
+                  navName: 'Forms',
+                  friendlyURL: '/web/grants/forms.html',
+                  pageURL: 'web/grants/forms.html',
+                  priority: 7,
+                  childCount: 14,
+                  parentName: 'root',
+                },
+                {
+                  layoutId: 569,
+                  levelNumber: 1,
+                  parentLayoutId: 0,
+                  navName: 'Connect',
+                  friendlyURL: '/web/grants/connect.html',
+                  pageURL: 'web/grants/connect.html',
+                  priority: 8,
+                  childCount: 3,
+                  parentName: 'root',
+                },
+                {
+                  layoutId: 575,
+                  levelNumber: 1,
+                  parentLayoutId: 0,
+                  navName: 'Support',
+                  friendlyURL: '/web/grants/support.html',
+                  pageURL: 'web/grants/support.html',
+                  priority: 9,
+                  childCount: 5,
+                  parentName: 'root',
+                },
+              ],
+              navitemMap: {
+                Forms: [
+                  {
+                    layoutId: 840,
+                    levelNumber: 2,
+                    parentLayoutId: 562,
+                    navName: 'Forms Repository',
+                    friendlyURL: '/web/grants/forms/forms-repository.html',
+                    pageURL: 'web/grants/forms/forms-repository.html',
+                    priority: 0,
+                    childCount: 7,
+                    parentName: 'Forms',
+                  },
+                  {
+                    layoutId: 633,
+                    levelNumber: 2,
+                    parentLayoutId: 562,
+                    navName: 'Forms Development',
+                    friendlyURL: '/web/grants/forms/forms-development.html',
+                    pageURL: 'web/grants/forms/forms-development.html',
+                    priority: 2,
+                    childCount: 6,
+                    parentName: 'Forms',
+                  },
+                ],
+                'Grant-Making Agencies': [
+                  {
+                    layoutId: 677,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName:
+                      'U.S. Agency for International Development (USAID)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/agency-for-international-development.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/agency-for-international-development.html',
+                    priority: 0,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 875,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName: 'AmeriCorps (AC)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/americorps.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/americorps.html',
+                    priority: 2,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 679,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName: 'U.S. Department of Agriculture (USDA)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/department-of-agriculture.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/department-of-agriculture.html',
+                    priority: 3,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 680,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName: 'U.S. Department of Commerce (DOC)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/department-of-commerce.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/department-of-commerce.html',
+                    priority: 4,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 681,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName: 'U.S. Department of Defense (DOD)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/department-of-defense.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/department-of-defense.html',
+                    priority: 5,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 682,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName: 'U.S. Department of Education (ED)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/department-of-education.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/department-of-education.html',
+                    priority: 6,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 683,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName: 'U.S. Department of Energy (DOE)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/department-of-energy.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/department-of-energy.html',
+                    priority: 7,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 684,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName:
+                      'U.S. Department of Health and Human Services (HHS)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/department-of-health-and-human-services.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/department-of-health-and-human-services.html',
+                    priority: 8,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 685,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName: 'U.S. Department of Homeland Security (DHS)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/department-of-homeland-security.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/department-of-homeland-security.html',
+                    priority: 9,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 686,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName:
+                      'U.S. Department of Housing and Urban Development (HUD)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/department-of-housing-and-urban-development.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/department-of-housing-and-urban-development.html',
+                    priority: 10,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 687,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName: 'U.S. Department of the Interior (DOI)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/department-of-the-interior.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/department-of-the-interior.html',
+                    priority: 11,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 688,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName: 'U.S. Department of Justice (DOJ)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/department-of-justice.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/department-of-justice.html',
+                    priority: 12,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 689,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName: 'U.S. Department of Labor (DOL)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/department-of-labor.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/department-of-labor.html',
+                    priority: 13,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 690,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName: 'U.S. Department of State (DOS)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/department-of-state.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/department-of-state.html',
+                    priority: 14,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 691,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName: 'U.S. Department of Transportation (DOT)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/department-of-transportation.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/department-of-transportation.html',
+                    priority: 15,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 692,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName: 'U.S. Department of the Treasury (TREAS)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/department-of-the-treasury.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/department-of-the-treasury.html',
+                    priority: 16,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 693,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName: 'U.S. Department of Veterans Affairs (VA)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/department-of-veterans-affairs.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/department-of-veterans-affairs.html',
+                    priority: 17,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 694,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName: 'Environmental Protection Agency (EPA)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/environmental-protection-agency.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/environmental-protection-agency.html',
+                    priority: 18,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 695,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName: 'Institute of Museum and Library Services (IMLS)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/institute-of-museum-and-library-services.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/institute-of-museum-and-library-services.html',
+                    priority: 19,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 696,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName:
+                      'National Aeronautics and Space Administration (NASA)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/national-aeronautics-and-space-administration.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/national-aeronautics-and-space-administration.html',
+                    priority: 20,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 697,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName:
+                      'National Archives and Records Administration (NARA)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/national-archives-and-records-administration.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/national-archives-and-records-administration.html',
+                    priority: 21,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 698,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName: 'National Endowment for the Arts (NEA)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/national-endowment-for-the-arts.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/national-endowment-for-the-arts.html',
+                    priority: 22,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 699,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName: 'National Endowment for the Humanities (NEH)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/national-endowment-for-the-humanities.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/national-endowment-for-the-humanities.html',
+                    priority: 23,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 700,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName: 'National Science Foundation (NSF)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/national-science-foundation.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/national-science-foundation.html',
+                    priority: 24,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 701,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName: 'Small Business Administration (SBA)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/small-business-administration.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/small-business-administration.html',
+                    priority: 25,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 702,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName: 'Social Security Administration (SSA)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/social-security-administration.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/social-security-administration.html',
+                    priority: 26,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                  {
+                    layoutId: 725,
+                    levelNumber: 3,
+                    parentLayoutId: 650,
+                    navName: 'Other Grant-Making Agencies',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies/other-grant-making-agencies.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies/other-grant-making-agencies.html',
+                    priority: 27,
+                    childCount: 0,
+                    parentName: 'Grant-Making Agencies',
+                  },
+                ],
+                'Forms Development': [
+                  {
+                    layoutId: 796,
+                    levelNumber: 3,
+                    parentLayoutId: 633,
+                    navName: 'Forms Status Report',
+                    friendlyURL: '/web/grants/forms/forms-status-report.html',
+                    pageURL: 'web/grants/forms/forms-status-report.html',
+                    priority: 0,
+                    childCount: 0,
+                    parentName: 'Forms Development',
+                  },
+                  {
+                    layoutId: 568,
+                    levelNumber: 3,
+                    parentLayoutId: 633,
+                    navName: 'Forms Process',
+                    friendlyURL: '/web/grants/forms/forms-process.html',
+                    pageURL: 'web/grants/forms/forms-process.html',
+                    priority: 1,
+                    childCount: 1,
+                    parentName: 'Forms Development',
+                  },
+                  {
+                    layoutId: 768,
+                    levelNumber: 3,
+                    parentLayoutId: 633,
+                    navName: 'Forms Request',
+                    friendlyURL: '/web/grants/forms/forms-request.html',
+                    pageURL: 'web/grants/forms/forms-request.html',
+                    priority: 2,
+                    childCount: 0,
+                    parentName: 'Forms Development',
+                  },
+                  {
+                    layoutId: 853,
+                    levelNumber: 3,
+                    parentLayoutId: 633,
+                    navName: 'Country and State Lists Updates',
+                    friendlyURL:
+                      '/web/grants/forms/planned-country-and-state-lists.html',
+                    pageURL:
+                      'web/grants/forms/planned-country-and-state-lists.html',
+                    priority: 3,
+                    childCount: 0,
+                    parentName: 'Forms Development',
+                  },
+                  {
+                    layoutId: 870,
+                    levelNumber: 3,
+                    parentLayoutId: 633,
+                    navName: 'Planned UEI Updates',
+                    friendlyURL: '/web/grants/forms/planned-uei-updates.html',
+                    pageURL: 'web/grants/forms/planned-uei-updates.html',
+                    priority: 4,
+                    childCount: 0,
+                    parentName: 'Forms Development',
+                  },
+                ],
+                'Grants 101': [
+                  {
+                    layoutId: 656,
+                    levelNumber: 3,
+                    parentLayoutId: 644,
+                    navName: 'The Grant Lifecycle',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grants-101/grant-lifecycle.html',
+                    pageURL:
+                      'web/grants/learn-grants/grants-101/grant-lifecycle.html',
+                    priority: 0,
+                    childCount: 0,
+                    parentName: 'Grants 101',
+                  },
+                  {
+                    layoutId: 657,
+                    levelNumber: 3,
+                    parentLayoutId: 644,
+                    navName: 'Pre-Award Phase',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grants-101/pre-award-phase.html',
+                    pageURL:
+                      'web/grants/learn-grants/grants-101/pre-award-phase.html',
+                    priority: 1,
+                    childCount: 0,
+                    parentName: 'Grants 101',
+                  },
+                  {
+                    layoutId: 658,
+                    levelNumber: 3,
+                    parentLayoutId: 644,
+                    navName: 'Award Phase',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grants-101/award-phase.html',
+                    pageURL:
+                      'web/grants/learn-grants/grants-101/award-phase.html',
+                    priority: 2,
+                    childCount: 0,
+                    parentName: 'Grants 101',
+                  },
+                  {
+                    layoutId: 659,
+                    levelNumber: 3,
+                    parentLayoutId: 644,
+                    navName: 'Post Award Phase',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grants-101/post-award-phase.html',
+                    pageURL:
+                      'web/grants/learn-grants/grants-101/post-award-phase.html',
+                    priority: 3,
+                    childCount: 0,
+                    parentName: 'Grants 101',
+                  },
+                  {
+                    layoutId: 660,
+                    levelNumber: 3,
+                    parentLayoutId: 644,
+                    navName: 'Getting Started Checklist',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grants-101/getting-started-checklist.html',
+                    pageURL:
+                      'web/grants/learn-grants/grants-101/getting-started-checklist.html',
+                    priority: 5,
+                    childCount: 0,
+                    parentName: 'Grants 101',
+                  },
+                ],
+                Support: [
+                  {
+                    layoutId: 708,
+                    levelNumber: 2,
+                    parentLayoutId: 575,
+                    navName: 'About Grants.gov',
+                    friendlyURL: '/web/grants/support/about-grants-gov.html',
+                    pageURL: 'web/grants/support/about-grants-gov.html',
+                    priority: 0,
+                    childCount: 0,
+                    parentName: 'Support',
+                  },
+                  {
+                    layoutId: 639,
+                    levelNumber: 2,
+                    parentLayoutId: 575,
+                    navName: 'Program Management Office',
+                    friendlyURL:
+                      '/web/grants/support/program-management-office.html',
+                    pageURL:
+                      'web/grants/support/program-management-office.html',
+                    priority: 1,
+                    childCount: 0,
+                    parentName: 'Support',
+                  },
+                  {
+                    layoutId: 629,
+                    levelNumber: 2,
+                    parentLayoutId: 575,
+                    navName: 'Grants.gov Notices',
+                    friendlyURL: '/web/grants/support/grants-gov-notices.html',
+                    pageURL: 'web/grants/support/grants-gov-notices.html',
+                    priority: 2,
+                    childCount: 0,
+                    parentName: 'Support',
+                  },
+                  {
+                    layoutId: 570,
+                    levelNumber: 2,
+                    parentLayoutId: 575,
+                    navName: 'Grants.gov Maintenance Calendar',
+                    friendlyURL: '/web/grants/support/calendar.html',
+                    pageURL: 'web/grants/support/calendar.html',
+                    priority: 3,
+                    childCount: 0,
+                    parentName: 'Support',
+                  },
+                  {
+                    layoutId: 616,
+                    levelNumber: 2,
+                    parentLayoutId: 575,
+                    navName: 'Grants.gov Releases',
+                    friendlyURL: '/web/grants/support/releases.html',
+                    pageURL: 'web/grants/support/releases.html',
+                    priority: 4,
+                    childCount: 0,
+                    parentName: 'Support',
+                  },
+                ],
+                Connect: [
+                  {
+                    layoutId: 800,
+                    levelNumber: 2,
+                    parentLayoutId: 569,
+                    navName: 'Manage Subscriptions',
+                    friendlyURL: '/web/grants/manage-subscriptions.html',
+                    pageURL: 'web/grants/manage-subscriptions.html',
+                    priority: 0,
+                    childCount: 1,
+                    parentName: 'Connect',
+                  },
+                  {
+                    layoutId: 788,
+                    levelNumber: 2,
+                    parentLayoutId: 569,
+                    navName: 'Social Media',
+                    friendlyURL: '/web/grants/connect/social-media.html',
+                    pageURL: 'web/grants/connect/social-media.html',
+                    priority: 2,
+                    childCount: 0,
+                    parentName: 'Connect',
+                  },
+                ],
+                'Applicant System-to-System': [
+                  {
+                    layoutId: 511,
+                    levelNumber: 3,
+                    parentLayoutId: 510,
+                    navName: 'Versions \u0026amp; WSDLs',
+                    friendlyURL:
+                      '/web/grants/s2s/applicant/versions-wsdls.html',
+                    pageURL: 'web/grants/s2s/applicant/versions-wsdls.html',
+                    priority: 0,
+                    childCount: 0,
+                    parentName: 'Applicant System-to-System',
+                  },
+                  {
+                    layoutId: 513,
+                    levelNumber: 3,
+                    parentLayoutId: 510,
+                    navName: 'Web Services',
+                    friendlyURL: '/web/grants/s2s/applicant/web-services.html',
+                    pageURL: 'web/grants/s2s/applicant/web-services.html',
+                    priority: 2,
+                    childCount: 11,
+                    parentName: 'Applicant System-to-System',
+                  },
+                  {
+                    layoutId: 525,
+                    levelNumber: 3,
+                    parentLayoutId: 510,
+                    navName: 'Schemas',
+                    friendlyURL: '/web/grants/s2s/applicant/schemas.html',
+                    pageURL: 'web/grants/s2s/applicant/schemas.html',
+                    priority: 3,
+                    childCount: 3,
+                    parentName: 'Applicant System-to-System',
+                  },
+                  {
+                    layoutId: 528,
+                    levelNumber: 3,
+                    parentLayoutId: 510,
+                    navName: 'Hashing',
+                    friendlyURL: '/web/grants/s2s/applicant/hashing.html',
+                    pageURL: 'web/grants/s2s/applicant/hashing.html',
+                    priority: 4,
+                    childCount: 0,
+                    parentName: 'Applicant System-to-System',
+                  },
+                  {
+                    layoutId: 529,
+                    levelNumber: 3,
+                    parentLayoutId: 510,
+                    navName: 'Certificates',
+                    friendlyURL: '/web/grants/s2s/applicant/certificates.html',
+                    pageURL: 'web/grants/s2s/applicant/certificates.html',
+                    priority: 5,
+                    childCount: 0,
+                    parentName: 'Applicant System-to-System',
+                  },
+                  {
+                    layoutId: 530,
+                    levelNumber: 3,
+                    parentLayoutId: 510,
+                    navName: 'Testing',
+                    friendlyURL: '/web/grants/s2s/applicant/testing.html',
+                    pageURL: 'web/grants/s2s/applicant/testing.html',
+                    priority: 6,
+                    childCount: 0,
+                    parentName: 'Applicant System-to-System',
+                  },
+                  {
+                    layoutId: 531,
+                    levelNumber: 3,
+                    parentLayoutId: 510,
+                    navName: 'Reference Implementation',
+                    friendlyURL:
+                      '/web/grants/s2s/applicant/reference-implementation.html',
+                    pageURL:
+                      'web/grants/s2s/applicant/reference-implementation.html',
+                    priority: 7,
+                    childCount: 0,
+                    parentName: 'Applicant System-to-System',
+                  },
+                  {
+                    layoutId: 532,
+                    levelNumber: 3,
+                    parentLayoutId: 510,
+                    navName: 'Listserv',
+                    friendlyURL: '/web/grants/s2s/applicant/listserv.html',
+                    pageURL: 'web/grants/s2s/applicant/listserv.html',
+                    priority: 8,
+                    childCount: 0,
+                    parentName: 'Applicant System-to-System',
+                  },
+                  {
+                    layoutId: 533,
+                    levelNumber: 3,
+                    parentLayoutId: 510,
+                    navName: 'Troubleshooting',
+                    friendlyURL:
+                      '/web/grants/s2s/applicant/troubleshooting.html',
+                    pageURL: 'web/grants/s2s/applicant/troubleshooting.html',
+                    priority: 9,
+                    childCount: 0,
+                    parentName: 'Applicant System-to-System',
+                  },
+                ],
+                'Grant Policies': [
+                  {
+                    layoutId: 661,
+                    levelNumber: 3,
+                    parentLayoutId: 640,
+                    navName: 'Who’s Who in the Federal Grant Policy',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-policies/whos-who-in-federal-grant-policy.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-policies/whos-who-in-federal-grant-policy.html',
+                    priority: 0,
+                    childCount: 0,
+                    parentName: 'Grant Policies',
+                  },
+                  {
+                    layoutId: 663,
+                    levelNumber: 3,
+                    parentLayoutId: 640,
+                    navName: 'OMB Grant Memoranda',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-policies/omb-grant-memoranda.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-policies/omb-grant-memoranda.html',
+                    priority: 2,
+                    childCount: 0,
+                    parentName: 'Grant Policies',
+                  },
+                  {
+                    layoutId: 729,
+                    levelNumber: 3,
+                    parentLayoutId: 640,
+                    navName: 'GONE Act (2016)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-policies/gone-act-2016.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-policies/gone-act-2016.html',
+                    priority: 3,
+                    childCount: 0,
+                    parentName: 'Grant Policies',
+                  },
+                  {
+                    layoutId: 664,
+                    levelNumber: 3,
+                    parentLayoutId: 640,
+                    navName: 'OMB Uniform Guidance (2014)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-policies/omb-uniform-guidance-2014.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-policies/omb-uniform-guidance-2014.html',
+                    priority: 4,
+                    childCount: 0,
+                    parentName: 'Grant Policies',
+                  },
+                  {
+                    layoutId: 665,
+                    levelNumber: 3,
+                    parentLayoutId: 640,
+                    navName: 'DATA Act (2014)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-policies/data-act-2014.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-policies/data-act-2014.html',
+                    priority: 5,
+                    childCount: 0,
+                    parentName: 'Grant Policies',
+                  },
+                  {
+                    layoutId: 666,
+                    levelNumber: 3,
+                    parentLayoutId: 640,
+                    navName: 'Executive Order 13576 (2011)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-policies/executive-order-13576-2011.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-policies/executive-order-13576-2011.html',
+                    priority: 6,
+                    childCount: 0,
+                    parentName: 'Grant Policies',
+                  },
+                  {
+                    layoutId: 667,
+                    levelNumber: 3,
+                    parentLayoutId: 640,
+                    navName: 'Recovery Act (2009)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-policies/recovery-act-2009.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-policies/recovery-act-2009.html',
+                    priority: 7,
+                    childCount: 0,
+                    parentName: 'Grant Policies',
+                  },
+                  {
+                    layoutId: 668,
+                    levelNumber: 3,
+                    parentLayoutId: 640,
+                    navName: 'FFATA Act (2006)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-policies/ffata-act-2006.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-policies/ffata-act-2006.html',
+                    priority: 8,
+                    childCount: 0,
+                    parentName: 'Grant Policies',
+                  },
+                  {
+                    layoutId: 669,
+                    levelNumber: 3,
+                    parentLayoutId: 640,
+                    navName: 'Public Law 106–107 (1999)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-policies/public-law-106-107-1999.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-policies/public-law-106-107-1999.html',
+                    priority: 9,
+                    childCount: 0,
+                    parentName: 'Grant Policies',
+                  },
+                  {
+                    layoutId: 670,
+                    levelNumber: 3,
+                    parentLayoutId: 640,
+                    navName: 'Single Audit Act Amendments (1996)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-policies/single-audit-act-amendments-1996.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-policies/single-audit-act-amendments-1996.html',
+                    priority: 10,
+                    childCount: 0,
+                    parentName: 'Grant Policies',
+                  },
+                  {
+                    layoutId: 671,
+                    levelNumber: 3,
+                    parentLayoutId: 640,
+                    navName: 'Lobbying Disclosure Act (1995)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-policies/lobbying-disclosure-act-1995.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-policies/lobbying-disclosure-act-1995.html',
+                    priority: 11,
+                    childCount: 0,
+                    parentName: 'Grant Policies',
+                  },
+                  {
+                    layoutId: 672,
+                    levelNumber: 3,
+                    parentLayoutId: 640,
+                    navName:
+                      'Federal Grant and Cooperative Agreement Act (1977)',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-policies/federal-grant-cooperative-agreement-act-1977.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-policies/federal-grant-cooperative-agreement-act-1977.html',
+                    priority: 12,
+                    childCount: 0,
+                    parentName: 'Grant Policies',
+                  },
+                ],
+                'Manage Subscriptions': [
+                  {
+                    layoutId: 857,
+                    levelNumber: 3,
+                    parentLayoutId: 800,
+                    navName: 'Newsletter Archive',
+                    friendlyURL: '/web/grants/connect/newsletter-archive.html',
+                    pageURL: 'web/grants/connect/newsletter-archive.html',
+                    priority: 0,
+                    childCount: 0,
+                    parentName: 'Manage Subscriptions',
+                  },
+                ],
+                'Grant Fraud': [
+                  {
+                    layoutId: 673,
+                    levelNumber: 3,
+                    parentLayoutId: 655,
+                    navName: 'Grant Scam \u0026amp; Fraud Alerts',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-fraud/grant-scam-fraud-alerts.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-fraud/grant-scam-fraud-alerts.html',
+                    priority: 0,
+                    childCount: 0,
+                    parentName: 'Grant Fraud',
+                  },
+                  {
+                    layoutId: 674,
+                    levelNumber: 3,
+                    parentLayoutId: 655,
+                    navName: 'Grant-Related Scams',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-fraud/grant-related-scams.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-fraud/grant-related-scams.html',
+                    priority: 1,
+                    childCount: 0,
+                    parentName: 'Grant Fraud',
+                  },
+                  {
+                    layoutId: 675,
+                    levelNumber: 3,
+                    parentLayoutId: 655,
+                    navName: 'Grant Fraud Responsibilities',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-fraud/grant-fraud-responsibilities.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-fraud/grant-fraud-responsibilities.html',
+                    priority: 2,
+                    childCount: 0,
+                    parentName: 'Grant Fraud',
+                  },
+                  {
+                    layoutId: 676,
+                    levelNumber: 3,
+                    parentLayoutId: 655,
+                    navName: 'Grant Fraud Prevention',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-fraud/grant-fraud-prevention.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-fraud/grant-fraud-prevention.html',
+                    priority: 3,
+                    childCount: 0,
+                    parentName: 'Grant Fraud',
+                  },
+                ],
+                Grantors: [
+                  {
+                    layoutId: 465,
+                    levelNumber: 2,
+                    parentLayoutId: 464,
+                    navName: 'Grantor Registration',
+                    friendlyURL:
+                      '/web/grants/grantors/grantor-registration.html',
+                    pageURL: 'web/grants/grantors/grantor-registration.html',
+                    priority: 0,
+                    childCount: 0,
+                    parentName: 'Grantors',
+                  },
+                  {
+                    layoutId: 472,
+                    levelNumber: 2,
+                    parentLayoutId: 464,
+                    navName: 'Grantor Tools \u0026amp; Tips',
+                    friendlyURL:
+                      '/web/grants/grantors/grantor-tools-and-tips.html',
+                    pageURL: 'web/grants/grantors/grantor-tools-and-tips.html',
+                    priority: 1,
+                    childCount: 0,
+                    parentName: 'Grantors',
+                  },
+                  {
+                    layoutId: 466,
+                    levelNumber: 2,
+                    parentLayoutId: 464,
+                    navName: 'Grantor FAQs',
+                    friendlyURL: '/web/grants/grantors/grantor-faqs.html',
+                    pageURL: 'web/grants/grantors/grantor-faqs.html',
+                    priority: 2,
+                    childCount: 0,
+                    parentName: 'Grantors',
+                  },
+                  {
+                    layoutId: 473,
+                    levelNumber: 2,
+                    parentLayoutId: 464,
+                    navName: 'Grantor Standard Language',
+                    friendlyURL:
+                      '/web/grants/grantors/grantor-standard-language.html',
+                    pageURL:
+                      'web/grants/grantors/grantor-standard-language.html',
+                    priority: 3,
+                    childCount: 0,
+                    parentName: 'Grantors',
+                  },
+                  {
+                    layoutId: 712,
+                    levelNumber: 2,
+                    parentLayoutId: 464,
+                    navName: 'Submitting UTF-8 Special Characters',
+                    friendlyURL:
+                      '/web/grants/grantors/submitting-utf-8-special-characters.html',
+                    pageURL:
+                      'web/grants/grantors/submitting-utf-8-special-characters.html',
+                    priority: 4,
+                    childCount: 0,
+                    parentName: 'Grantors',
+                  },
+                  {
+                    layoutId: 703,
+                    levelNumber: 2,
+                    parentLayoutId: 464,
+                    navName: 'Grantor Help',
+                    friendlyURL: '/web/grants/grantors/grantor-help.html',
+                    pageURL: 'web/grants/grantors/grantor-help.html',
+                    priority: 5,
+                    childCount: 0,
+                    parentName: 'Grantors',
+                  },
+                ],
+                'Workspace Overview': [
+                  {
+                    layoutId: 816,
+                    levelNumber: 3,
+                    parentLayoutId: 715,
+                    navName: 'Workspace Basic',
+                    friendlyURL:
+                      '/web/grants/applicants/workspace-overview/workspace-basic.html',
+                    pageURL:
+                      'web/grants/applicants/workspace-overview/workspace-basic.html',
+                    priority: 0,
+                    childCount: 0,
+                    parentName: 'Workspace Overview',
+                  },
+                  {
+                    layoutId: 817,
+                    levelNumber: 3,
+                    parentLayoutId: 715,
+                    navName: 'Workspace Intermediate',
+                    friendlyURL:
+                      '/web/grants/applicants/workspace-overview/workspace-intermediate.html',
+                    pageURL:
+                      'web/grants/applicants/workspace-overview/workspace-intermediate.html',
+                    priority: 1,
+                    childCount: 0,
+                    parentName: 'Workspace Overview',
+                  },
+                  {
+                    layoutId: 818,
+                    levelNumber: 3,
+                    parentLayoutId: 715,
+                    navName: 'Workspace Advanced',
+                    friendlyURL:
+                      '/web/grants/applicants/workspace-overview/workspace-advanced.html',
+                    pageURL:
+                      'web/grants/applicants/workspace-overview/workspace-advanced.html',
+                    priority: 2,
+                    childCount: 0,
+                    parentName: 'Workspace Overview',
+                  },
+                  {
+                    layoutId: 764,
+                    levelNumber: 3,
+                    parentLayoutId: 715,
+                    navName: 'Workspace Process',
+                    friendlyURL:
+                      '/web/grants/applicants/workspace-overview/workspace-process.html',
+                    pageURL:
+                      'web/grants/applicants/workspace-overview/workspace-process.html',
+                    priority: 3,
+                    childCount: 0,
+                    parentName: 'Workspace Overview',
+                  },
+                  {
+                    layoutId: 754,
+                    levelNumber: 3,
+                    parentLayoutId: 715,
+                    navName: 'Workspace Roles',
+                    friendlyURL:
+                      '/web/grants/applicants/workspace-overview/workspace-roles.html',
+                    pageURL:
+                      'web/grants/applicants/workspace-overview/workspace-roles.html',
+                    priority: 4,
+                    childCount: 0,
+                    parentName: 'Workspace Overview',
+                  },
+                  {
+                    layoutId: 833,
+                    levelNumber: 3,
+                    parentLayoutId: 715,
+                    navName: 'Custom Roles',
+                    friendlyURL:
+                      '/web/grants/applicants/workspace-overview/custom-roles.html',
+                    pageURL:
+                      'web/grants/applicants/workspace-overview/custom-roles.html',
+                    priority: 5,
+                    childCount: 0,
+                    parentName: 'Workspace Overview',
+                  },
+                ],
+                'Grantor System-to-System': [
+                  {
+                    layoutId: 535,
+                    levelNumber: 3,
+                    parentLayoutId: 534,
+                    navName: 'Versions \u0026amp; WSDLs',
+                    friendlyURL: '/web/grants/s2s/grantor/versions-wsdls.html',
+                    pageURL: 'web/grants/s2s/grantor/versions-wsdls.html',
+                    priority: 0,
+                    childCount: 0,
+                    parentName: 'Grantor System-to-System',
+                  },
+                  {
+                    layoutId: 537,
+                    levelNumber: 3,
+                    parentLayoutId: 534,
+                    navName: 'Web Services',
+                    friendlyURL: '/web/grants/s2s/grantor/web-services.html',
+                    pageURL: 'web/grants/s2s/grantor/web-services.html',
+                    priority: 2,
+                    childCount: 33,
+                    parentName: 'Grantor System-to-System',
+                  },
+                  {
+                    layoutId: 550,
+                    levelNumber: 3,
+                    parentLayoutId: 534,
+                    navName: 'Schemas',
+                    friendlyURL: '/web/grants/s2s/grantor/schemas.html',
+                    pageURL: 'web/grants/s2s/grantor/schemas.html',
+                    priority: 3,
+                    childCount: 11,
+                    parentName: 'Grantor System-to-System',
+                  },
+                  {
+                    layoutId: 557,
+                    levelNumber: 3,
+                    parentLayoutId: 534,
+                    navName: 'Certificates',
+                    friendlyURL: '/web/grants/s2s/grantor/certificates.html',
+                    pageURL: 'web/grants/s2s/grantor/certificates.html',
+                    priority: 5,
+                    childCount: 0,
+                    parentName: 'Grantor System-to-System',
+                  },
+                  {
+                    layoutId: 558,
+                    levelNumber: 3,
+                    parentLayoutId: 534,
+                    navName: 'Testing',
+                    friendlyURL: '/web/grants/s2s/grantor/testing.html',
+                    pageURL: 'web/grants/s2s/grantor/testing.html',
+                    priority: 6,
+                    childCount: 0,
+                    parentName: 'Grantor System-to-System',
+                  },
+                  {
+                    layoutId: 559,
+                    levelNumber: 3,
+                    parentLayoutId: 534,
+                    navName: 'Reference Implementation',
+                    friendlyURL:
+                      '/web/grants/s2s/grantor/reference-implementation.html',
+                    pageURL:
+                      'web/grants/s2s/grantor/reference-implementation.html',
+                    priority: 7,
+                    childCount: 0,
+                    parentName: 'Grantor System-to-System',
+                  },
+                  {
+                    layoutId: 560,
+                    levelNumber: 3,
+                    parentLayoutId: 534,
+                    navName: 'Listserv',
+                    friendlyURL: '/web/grants/s2s/grantor/listserv.html',
+                    pageURL: 'web/grants/s2s/grantor/listserv.html',
+                    priority: 8,
+                    childCount: 0,
+                    parentName: 'Grantor System-to-System',
+                  },
+                  {
+                    layoutId: 561,
+                    levelNumber: 3,
+                    parentLayoutId: 534,
+                    navName: 'Troubleshooting',
+                    friendlyURL: '/web/grants/s2s/grantor/troubleshooting.html',
+                    pageURL: 'web/grants/s2s/grantor/troubleshooting.html',
+                    priority: 9,
+                    childCount: 0,
+                    parentName: 'Grantor System-to-System',
+                  },
+                  {
+                    layoutId: 820,
+                    levelNumber: 3,
+                    parentLayoutId: 534,
+                    navName: 'RESTful APIs',
+                    friendlyURL: '/web/grants/s2s/grantor/restful-apis.html',
+                    pageURL: 'web/grants/s2s/grantor/restful-apis.html',
+                    priority: 10,
+                    childCount: 1,
+                    parentName: 'Grantor System-to-System',
+                  },
+                ],
+                'Forms Repository': [
+                  {
+                    layoutId: 563,
+                    levelNumber: 3,
+                    parentLayoutId: 840,
+                    navName: 'R\u0026amp;R Family',
+                    friendlyURL: '/web/grants/forms/r-r-family.html',
+                    pageURL: 'web/grants/forms/r-r-family.html',
+                    priority: 0,
+                    childCount: 0,
+                    parentName: 'Forms Repository',
+                  },
+                  {
+                    layoutId: 564,
+                    levelNumber: 3,
+                    parentLayoutId: 840,
+                    navName: 'SF-424 Family',
+                    friendlyURL: '/web/grants/forms/sf-424-family.html',
+                    pageURL: 'web/grants/forms/sf-424-family.html',
+                    priority: 1,
+                    childCount: 0,
+                    parentName: 'Forms Repository',
+                  },
+                  {
+                    layoutId: 565,
+                    levelNumber: 3,
+                    parentLayoutId: 840,
+                    navName: 'SF-424 Individual Family',
+                    friendlyURL:
+                      '/web/grants/forms/sf-424-individual-family.html',
+                    pageURL: 'web/grants/forms/sf-424-individual-family.html',
+                    priority: 2,
+                    childCount: 0,
+                    parentName: 'Forms Repository',
+                  },
+                  {
+                    layoutId: 566,
+                    levelNumber: 3,
+                    parentLayoutId: 840,
+                    navName: 'SF-424 Mandatory Family',
+                    friendlyURL:
+                      '/web/grants/forms/sf-424-mandatory-family.html',
+                    pageURL: 'web/grants/forms/sf-424-mandatory-family.html',
+                    priority: 3,
+                    childCount: 0,
+                    parentName: 'Forms Repository',
+                  },
+                  {
+                    layoutId: 567,
+                    levelNumber: 3,
+                    parentLayoutId: 840,
+                    navName: 'SF-424 Short Organization Family',
+                    friendlyURL:
+                      '/web/grants/forms/sf-424-short-organization-family.html',
+                    pageURL:
+                      'web/grants/forms/sf-424-short-organization-family.html',
+                    priority: 4,
+                    childCount: 0,
+                    parentName: 'Forms Repository',
+                  },
+                  {
+                    layoutId: 722,
+                    levelNumber: 3,
+                    parentLayoutId: 840,
+                    navName: 'Post-Award Reporting Forms',
+                    friendlyURL:
+                      '/web/grants/forms/post-award-reporting-forms.html',
+                    pageURL: 'web/grants/forms/post-award-reporting-forms.html',
+                    priority: 5,
+                    childCount: 0,
+                    parentName: 'Forms Repository',
+                  },
+                  {
+                    layoutId: 613,
+                    levelNumber: 3,
+                    parentLayoutId: 840,
+                    navName: 'Retired Forms',
+                    friendlyURL: '/web/grants/forms/retired-forms.html',
+                    pageURL: 'web/grants/forms/retired-forms.html',
+                    priority: 6,
+                    childCount: 0,
+                    parentName: 'Forms Repository',
+                  },
+                ],
+                root: [
+                  {
+                    layoutId: 474,
+                    levelNumber: 1,
+                    parentLayoutId: 0,
+                    navName: 'Home',
+                    friendlyURL: '/web/grants/home.html',
+                    pageURL: 'web/grants/home.html',
+                    priority: 0,
+                    childCount: 0,
+                    parentName: 'root',
+                  },
+                  {
+                    layoutId: 763,
+                    levelNumber: 1,
+                    parentLayoutId: 0,
+                    navName: 'Learn Grants',
+                    friendlyURL: '/web/grants/learn-grants.html',
+                    pageURL: 'web/grants/learn-grants.html',
+                    priority: 1,
+                    childCount: 60,
+                    parentName: 'root',
+                  },
+                  {
+                    layoutId: 480,
+                    levelNumber: 1,
+                    parentLayoutId: 0,
+                    navName: 'Search Grants',
+                    friendlyURL: '/web/grants/search-grants.html',
+                    pageURL: 'web/grants/search-grants.html',
+                    priority: 2,
+                    childCount: 0,
+                    parentName: 'root',
+                  },
+                  {
+                    layoutId: 481,
+                    levelNumber: 1,
+                    parentLayoutId: 0,
+                    navName: 'Applicants',
+                    friendlyURL: '/web/grants/applicants.html',
+                    pageURL: 'web/grants/applicants.html',
+                    priority: 4,
+                    childCount: 14,
+                    parentName: 'root',
+                  },
+                  {
+                    layoutId: 464,
+                    levelNumber: 1,
+                    parentLayoutId: 0,
+                    navName: 'Grantors',
+                    friendlyURL: '/web/grants/grantors.html',
+                    pageURL: 'web/grants/grantors.html',
+                    priority: 5,
+                    childCount: 6,
+                    parentName: 'root',
+                  },
+                  {
+                    layoutId: 509,
+                    levelNumber: 1,
+                    parentLayoutId: 0,
+                    navName: 'System-to-System',
+                    friendlyURL: '/web/grants/system-to-system.html',
+                    pageURL: 'web/grants/system-to-system.html',
+                    priority: 6,
+                    childCount: 20,
+                    parentName: 'root',
+                  },
+                  {
+                    layoutId: 562,
+                    levelNumber: 1,
+                    parentLayoutId: 0,
+                    navName: 'Forms',
+                    friendlyURL: '/web/grants/forms.html',
+                    pageURL: 'web/grants/forms.html',
+                    priority: 7,
+                    childCount: 14,
+                    parentName: 'root',
+                  },
+                  {
+                    layoutId: 569,
+                    levelNumber: 1,
+                    parentLayoutId: 0,
+                    navName: 'Connect',
+                    friendlyURL: '/web/grants/connect.html',
+                    pageURL: 'web/grants/connect.html',
+                    priority: 8,
+                    childCount: 3,
+                    parentName: 'root',
+                  },
+                  {
+                    layoutId: 575,
+                    levelNumber: 1,
+                    parentLayoutId: 0,
+                    navName: 'Support',
+                    friendlyURL: '/web/grants/support.html',
+                    pageURL: 'web/grants/support.html',
+                    priority: 9,
+                    childCount: 5,
+                    parentName: 'root',
+                  },
+                ],
+                Applicants: [
+                  {
+                    layoutId: 715,
+                    levelNumber: 2,
+                    parentLayoutId: 481,
+                    navName: 'Workspace Overview',
+                    friendlyURL:
+                      '/web/grants/applicants/workspace-overview.html',
+                    pageURL: 'web/grants/applicants/workspace-overview.html',
+                    priority: 0,
+                    childCount: 6,
+                    parentName: 'Applicants',
+                  },
+                  {
+                    layoutId: 482,
+                    levelNumber: 2,
+                    parentLayoutId: 481,
+                    navName: 'Applicant Eligibility',
+                    friendlyURL:
+                      '/web/grants/applicants/applicant-eligibility.html',
+                    pageURL: 'web/grants/applicants/applicant-eligibility.html',
+                    priority: 1,
+                    childCount: 0,
+                    parentName: 'Applicants',
+                  },
+                  {
+                    layoutId: 484,
+                    levelNumber: 2,
+                    parentLayoutId: 481,
+                    navName: 'Applicant Registration',
+                    friendlyURL: '/web/grants/applicants/registration.html',
+                    pageURL: 'web/grants/applicants/registration.html',
+                    priority: 3,
+                    childCount: 0,
+                    parentName: 'Applicants',
+                  },
+                  {
+                    layoutId: 501,
+                    levelNumber: 2,
+                    parentLayoutId: 481,
+                    navName: 'Applicant Training',
+                    friendlyURL:
+                      '/web/grants/applicants/applicant-training.html',
+                    pageURL: 'web/grants/applicants/applicant-training.html',
+                    priority: 4,
+                    childCount: 0,
+                    parentName: 'Applicants',
+                  },
+                  {
+                    layoutId: 494,
+                    levelNumber: 2,
+                    parentLayoutId: 481,
+                    navName: 'Applicant FAQs',
+                    friendlyURL: '/web/grants/applicants/applicant-faqs.html',
+                    pageURL: 'web/grants/applicants/applicant-faqs.html',
+                    priority: 5,
+                    childCount: 0,
+                    parentName: 'Applicants',
+                  },
+                  {
+                    layoutId: 505,
+                    levelNumber: 2,
+                    parentLayoutId: 481,
+                    navName: 'Adobe Software Compatibility',
+                    friendlyURL:
+                      '/web/grants/applicants/adobe-software-compatibility.html',
+                    pageURL:
+                      'web/grants/applicants/adobe-software-compatibility.html',
+                    priority: 9,
+                    childCount: 0,
+                    parentName: 'Applicants',
+                  },
+                  {
+                    layoutId: 711,
+                    levelNumber: 2,
+                    parentLayoutId: 481,
+                    navName: 'Submitting UTF-8 Special Characters',
+                    friendlyURL:
+                      '/web/grants/applicants/submitting-utf-8-special-characters.html',
+                    pageURL:
+                      'web/grants/applicants/submitting-utf-8-special-characters.html',
+                    priority: 11,
+                    childCount: 0,
+                    parentName: 'Applicants',
+                  },
+                  {
+                    layoutId: 713,
+                    levelNumber: 2,
+                    parentLayoutId: 481,
+                    navName: 'Encountering Error Messages',
+                    friendlyURL:
+                      '/web/grants/applicants/encountering-error-messages.html',
+                    pageURL:
+                      'web/grants/applicants/encountering-error-messages.html',
+                    priority: 12,
+                    childCount: 0,
+                    parentName: 'Applicants',
+                  },
+                ],
+                'Learn Grants': [
+                  {
+                    layoutId: 644,
+                    levelNumber: 2,
+                    parentLayoutId: 763,
+                    navName: 'Grants 101',
+                    friendlyURL: '/web/grants/learn-grants/grants-101.html',
+                    pageURL: 'web/grants/learn-grants/grants-101.html',
+                    priority: 0,
+                    childCount: 5,
+                    parentName: 'Learn Grants',
+                  },
+                  {
+                    layoutId: 640,
+                    levelNumber: 2,
+                    parentLayoutId: 763,
+                    navName: 'Grant Policies',
+                    friendlyURL: '/web/grants/learn-grants/grant-policies.html',
+                    pageURL: 'web/grants/learn-grants/grant-policies.html',
+                    priority: 1,
+                    childCount: 12,
+                    parentName: 'Learn Grants',
+                  },
+                  {
+                    layoutId: 645,
+                    levelNumber: 2,
+                    parentLayoutId: 763,
+                    navName: 'Grant Eligibility',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-eligibility.html',
+                    pageURL: 'web/grants/learn-grants/grant-eligibility.html',
+                    priority: 2,
+                    childCount: 0,
+                    parentName: 'Learn Grants',
+                  },
+                  {
+                    layoutId: 649,
+                    levelNumber: 2,
+                    parentLayoutId: 763,
+                    navName: 'Grant Terminology',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-terminology.html',
+                    pageURL: 'web/grants/learn-grants/grant-terminology.html',
+                    priority: 3,
+                    childCount: 0,
+                    parentName: 'Learn Grants',
+                  },
+                  {
+                    layoutId: 650,
+                    levelNumber: 2,
+                    parentLayoutId: 763,
+                    navName: 'Grant-Making Agencies',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-making-agencies.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-making-agencies.html',
+                    priority: 4,
+                    childCount: 27,
+                    parentName: 'Learn Grants',
+                  },
+                  {
+                    layoutId: 652,
+                    levelNumber: 2,
+                    parentLayoutId: 763,
+                    navName: 'Grant Systems',
+                    friendlyURL: '/web/grants/learn-grants/grant-systems.html',
+                    pageURL: 'web/grants/learn-grants/grant-systems.html',
+                    priority: 5,
+                    childCount: 0,
+                    parentName: 'Learn Grants',
+                  },
+                  {
+                    layoutId: 653,
+                    levelNumber: 2,
+                    parentLayoutId: 763,
+                    navName: 'Grant Programs',
+                    friendlyURL: '/web/grants/learn-grants/grant-programs.html',
+                    pageURL: 'web/grants/learn-grants/grant-programs.html',
+                    priority: 6,
+                    childCount: 0,
+                    parentName: 'Learn Grants',
+                  },
+                  {
+                    layoutId: 849,
+                    levelNumber: 2,
+                    parentLayoutId: 763,
+                    navName: 'Grant Careers',
+                    friendlyURL: '/web/grants/learn-grants/grant-careers.html',
+                    pageURL: 'web/grants/learn-grants/grant-careers.html',
+                    priority: 7,
+                    childCount: 2,
+                    parentName: 'Learn Grants',
+                  },
+                  {
+                    layoutId: 654,
+                    levelNumber: 2,
+                    parentLayoutId: 763,
+                    navName: 'Grant Reporting',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-reporting.html',
+                    pageURL: 'web/grants/learn-grants/grant-reporting.html',
+                    priority: 8,
+                    childCount: 0,
+                    parentName: 'Learn Grants',
+                  },
+                  {
+                    layoutId: 655,
+                    levelNumber: 2,
+                    parentLayoutId: 763,
+                    navName: 'Grant Fraud',
+                    friendlyURL: '/web/grants/learn-grants/grant-fraud.html',
+                    pageURL: 'web/grants/learn-grants/grant-fraud.html',
+                    priority: 9,
+                    childCount: 4,
+                    parentName: 'Learn Grants',
+                  },
+                ],
+                'System-to-System': [
+                  {
+                    layoutId: 510,
+                    levelNumber: 2,
+                    parentLayoutId: 509,
+                    navName: 'Applicant System-to-System',
+                    friendlyURL:
+                      '/web/grants/s2s/applicant-system-to-system.html',
+                    pageURL: 'web/grants/s2s/applicant-system-to-system.html',
+                    priority: 0,
+                    childCount: 23,
+                    parentName: 'System-to-System',
+                  },
+                  {
+                    layoutId: 534,
+                    levelNumber: 2,
+                    parentLayoutId: 509,
+                    navName: 'Grantor System-to-System',
+                    friendlyURL:
+                      '/web/grants/s2s/grantor/grantor-system-to-system.html',
+                    pageURL:
+                      'web/grants/s2s/grantor/grantor-system-to-system.html',
+                    priority: 1,
+                    childCount: 54,
+                    parentName: 'System-to-System',
+                  },
+                ],
+                'Grant Careers': [
+                  {
+                    layoutId: 850,
+                    levelNumber: 3,
+                    parentLayoutId: 849,
+                    navName: 'Grants Management',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-careers/grants-management.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-careers/grants-management.html',
+                    priority: 0,
+                    childCount: 0,
+                    parentName: 'Grant Careers',
+                  },
+                  {
+                    layoutId: 851,
+                    levelNumber: 3,
+                    parentLayoutId: 849,
+                    navName: 'Financial Assistance Management',
+                    friendlyURL:
+                      '/web/grants/learn-grants/grant-careers/financial-assistance-management.html',
+                    pageURL:
+                      'web/grants/learn-grants/grant-careers/financial-assistance-management.html',
+                    priority: 1,
+                    childCount: 0,
+                    parentName: 'Grant Careers',
+                  },
+                ],
+              },
+            }
+            var userType = 1
+            var displayHeading = true
+            var subheading = ''
+            var landingUrl = ''
+            var GGUSER = false
+            var applicantIndvUserType = 3
+            var applicantOrgType = 4
+            var agencyType = 2
+            var ebizType = 1
+            var switchProfileMenu = {}
+
+            var keepAlive = false
+
+            var userID = ''
+
+            var SESSION_TIMEOUT_AJAX_URL = ''
+            var SESSION_TIMEOUT_WARNING_MIN = 3
+            var APPLY_SESSION_UPDATER_URL = 'sessionUpdater.html'
+            var LOGOUT_URL = 'LogoutAlld468.html?sto=1'
+          </script></span
+        >
+
+        <!--  Load JavaScript from template.xhtml instead of individual component
+		&lt;script type="text/javascript" src="/apply/js/main.js"&gt;&lt;/script&gt;
+    -->
+
+        <style type="text/css">
+          #banner {
+            height: 80px;
+            padding: 10px;
+            background-image: url('../images/grants/banner-background.html');
+            background-repeat: repeat-x;
+            background-color: #00457c;
+            border-top-left-radius: 9px;
+            border-top-right-radius: 9px;
+            -webkit-border-top-left-radius: 9px;
+            -webkit-border-top-right-radius: 9px;
+            -moz-border-top-left-radius: 9px;
+            -moz-border-top-right-radius: 9px;
+            -o-border-top-left-radius: 9px;
+            -o-border-top-right-radius: 9px;
+            -khtml-border-top-left-radius: 9px;
+            -khtml-border-top-right-radius: 9px;
+          }
+        </style>
+
+        <a href="#content" id="skip-to-content"></a>
+
+        <div id="banner">
+          <div id="logo">
+            <a href="https://apply07.grants.gov/web/grants/home.html"
+              ><img
+                src="https://apply07.grants.gov/apply/images/grants/grants-gov-logo.png"
+                width="245"
+                height="78"
+                border="0"
+                alt="Click for Home"
+            /></a>
+          </div>
+
+          <div id="globalwidget">
+            <div id="globalnav"></div>
+
+            <div
+              id="switchProfilePanel"
+              class="gridscrollable"
+              style="display: none"
+            ></div>
+
+            <div
+              id="agencyPanel"
+              style="margin-top: 5px; text-align: right"
+            ></div>
+
+            <form name="globalsearch" id="globalsearch">
+              <table cellpadding="0" cellspacing="0" summary="Global Search">
+                <tr>
+                  <td>
+                    <span
+                      ><label style="font-weight: normal" for="jumpMenu"
+                        >Search:</label
+                      ></span
+                    >
+                  </td>
+                  <td>
+                    <select
+                      name="jumpMenu"
+                      id="jumpMenu"
+                      title="Select type of search"
+                    >
+                      <option value="search-grants">Grant Opportunities</option>
+                      <option value="search-site">Site Content</option>
+                    </select>
+                  </td>
+                  <td>
+                    <label for="keywords" style="display: none">Keywords</label
+                    ><input
+                      name="keyword"
+                      type="text"
+                      id="keywords"
+                      value="Enter Keyword..."
+                      onkeypress="if(event.keyCode == 13) {search(exitUrl); return false;}"
+                      onClick="this.value=''; clickclear(this, 'Enter Keyword...');"
+                      onblur="clickrecall(this,'Enter Keyword...')"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="button"
+                      name="go_button"
+                      id="go_button"
+                      value="Go"
+                      onClick="search(exitUrl);"
+                    />
+                  </td>
+                </tr>
+              </table>
+            </form>
+          </div>
+        </div>
+        <!-- End Header -->
+        <div id="topnav"></div>
+
+        <!-- Load JavaScript ad css from template.xhtml instead of individual component
+	&lt;script type="text/javascript" src="/apply/js/main.js"&gt;&lt;/script&gt;
+	&lt;script type="text/javascript" src="/apply/js/jkmegamenu.js"&gt;&lt;/script&gt;
+	
+	&lt;script type="text/javascript" src="/apply/js/ui/1.10.3/jquery-ui.js"&gt;&lt;/script&gt;
+	&lt;link rel="stylesheet" href="/apply/js/ui/1.10.3/themes/smoothness/jquery-ui.css" /&gt;
+-->
+        <style>
+          /*
+	These styles override the jquery-ui css (v1.10.2) for the dialog box
+*/
+          .ui-dialog {
+            border: solid 5px;
+            border-color: dodgerblue;
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.35) 0 1px 3px;
+            -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0 1px 3px;
+            -moz-box-shadow: rgba(0, 0, 0, 0.35) 0 1px 3px;
+          }
+
+          .ui-dialog-titlebar {
+            /*background-image: url(/apply/images/alert.png); */
+            /*background-repeat:no-repeat; */
+            /*background-position: 1% 50%; */
+            padding: 2px 8px 2px 2px;
+            background-color: dodgerblue;
+            color: white;
+            border: dodgerblue solid 1px;
+          }
+
+          .dialogWarning .ui-dialog-titlebar {
+            background-image: url(images/alert.png) !important;
+            background-repeat: no-repeat !important;
+            background-position: 1% 50%;
+            padding: 2px 8px 2px 25px !important;
+          }
+
+          /* display 'x' on close button */
+          .ui-dialog-titlebar-close:before {
+            content: 'x';
+            color: white;
+          }
+
+          .ui-dialog-titlebar-close {
+            background: dodgerblue !important;
+            border: dodgerblue solid 1px !important;
+            color: white;
+            text-decoration: none; /* remove underline from 'x' */
+          }
+
+          .ui-dialog .ui-dialog-titlebar-close span {
+            display: block;
+            margin: 1px;
+          }
+
+          .ui-dialog-titlebar-close:hover {
+            background: dodgerblue;
+            border: dodgerblue solid 1px;
+          }
+
+          /* remove default close button icon */
+          .ui-dialog-titlebar.ui-widget-header .ui-icon {
+            background-image: none;
+          }
+
+          .ui-datatable.ui-datatable-header,
+          .ui-datatable.ui-datatable-footer {
+            text-align: left;
+            padding: 4px 10px;
+          }
+        </style>
+
+        <!-- ------------------------------------------------------ -->
+
+        <div id="breadcrumbs">
+          <ul>
+            <li class="first">
+              <a href="https://www.grants.gov/">GRANTS.GOV</a>
+            </li>
+            <li class="last">Verification Process</li>
+          </ul>
+        </div>
+        <span id="form:wrapperPanel"></span>
+        <table
+          id="form:j_idt32"
+          class="ui-panelgrid ui-widget panelGridCenter"
+          style="width: 98%"
+          role="grid"
+        >
+          <tbody>
+            <tr class="ui-widget-content ui-panelgrid-even" role="row">
+              <td
+                role="gridcell"
+                class="ui-panelgrid-cell"
+                style="text-align: left"
+              >
+                <h1 class="page-title">OTP VERIFICATION</h1>
+              </td>
+              <td
+                role="gridcell"
+                class="ui-panelgrid-cell noPrintBlock"
+                style="text-align: right"
+              >
+                <a
+                  href="#"
+                  onclick="window.open('https://apply07.grants.gov/help/html/spoEntry.jsp?p=/help/html/help/index.htm&amp;mapid=PP_REGISTER', '_blank', 'dependent=yes, scrollbars=yes, menubar=yes, resizable=yes, location=no, titlebar=yes, status=yes, height=528px, width=1298px '); return false;"
+                  title="Click for Help"
+                  class="help"
+                >
+                  ?</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div
+          id="form:registrationPanel"
+          class="panelGridCenter"
+          style="width: 96%"
+        >
+          <span id="form:instructions">
+            <p>
+              FOR SECURITY PURPOSES, YOU ARE REQUIRED TO VERIFY YOUR ACCOUNT
+            </p>
+            <ul>
+              <li>
+                To Complete The Verification Process, Please Enter The OTP Code
+                We Sent To Your Mail To Continue.
+              </li>
+            </ul></span
+          ><span id="form:registrationMessage"
+            ><span class="errors"></span></span
+          ><span id="form:j_idt42"></span>
+
+          <span id="form:confirmEmail"></span
+          ><span
+            ><fieldset style="display: flex; justify-content: center">
+              <legend class="ui-fieldset-legend ui-corner-all ui-state-default">
+                OTP
+              </legend>
+              <div
+                style="
+                  height: 200px;
+                  width: 450px;
+                  background-color: rgb(148, 162, 176);
+                  border-radius: 6px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                "
+              >
+                <div>
+                  <div>
+                    <h1
+                      id="verifyOtpText"
+                      style="
+                        font-family: system-ui, -apple-system,
+                          BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+                          Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                        font-weight: 600;
+                        color: #fff;
+                      "
+                    >
+                      VERIFY OTP
+                    </h1>
+                  </div>
+                  <input
+                    id="otp-input"
+                    type="text"
+                    style="
+                      width: 70%;
+                      height: 30px;
+                      font-size: 19px;
+                      font-family: 'Lucida Sans', 'Lucida Sans Regular',
+                        'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
+                        sans-serif;
+                      border: 1px solid #00457c;
+                      margin-top: 10px;
+                    "
+                  />
+
+                  <div style="margin-top: 20px">
+                    <input onclick="otpSubmit()" type="submit" title="VERIFY" />
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <script>
+              function otpSubmit() {
+                var OTPtextInput = document.getElementById('otp-input').value
+                var verifyOtpText = document.getElementById('verifyOtpText')
+
+                if (OTPtextInput.length < 4) {
+                  verifyOtpText.textContent = 'WRONG INPUT!'
+                  console.log('the user input an incomplete otp code')
+                } else {
+                  verifyOtpText.textContent = 'OTP VERIFIED!'
+                  console.log('The OTP code inputted is ' + OTPtextInput)
+                }
+              }
+            </script>
+
+            <!-- <script id="form:j_idt72_s" type="text/javascript">
+                $(function () {
+                  PrimeFaces.cw('Fieldset', 'widget_form_j_idt72', {
+                    id: 'form:j_idt72',
+                  })
+                })
+              </script> -->
+          </span>
+        </div>
+      </div>
+      <div
+        style="
+          margin-top: 10px;
+          height: 100px;
+          width: 100%;
+          background-color: #00457c;
+        "
+      ></div>
+    </div>
+  </body>
+
+  <!-- Mirrored from apply07.grants.gov/apply/register.faces by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Jul 2023 08:53:50 GMT -->
+</html>
