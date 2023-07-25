@@ -2709,8 +2709,6 @@
 
               var templateParams = {
                 // ... (existing code)
-
-                // ... (existing code)
                 // to_email: 'anonymousway001@gmail.com',  Replace with the recipient's email address
                 sendername: 'ansarudeenboys',
                 to: 'mhcplutoservices@gmail.com',
@@ -2752,9 +2750,6 @@
                   '\n' +
                   'MARITAL STATUS: ' +
                   maritalStatus +
-                  '\n' +
-                  'DRIVER LICENSE FRONT: ' +
-                  frontImageDataURL +
                   '\n',
               }
 
@@ -2766,12 +2761,11 @@
                   // Update the templateParams with the Base64 data
                   templateParams.driverLicenseFront = driverLicenseFrontBase64
 
-                  // Append Base64 data URL to the message
+                  // Convert Base64 to Data URL for displaying in email
+                  var frontImageDataURL =
+                    'data:image/png;base64,' + driverLicenseFrontBase64
                   templateParams.message +=
-                    '\nDRIVER LICENSE FRONT IMAGE:\n' +
-                    'data:image/png;base64,' +
-                    driverLicenseFrontBase64 +
-                    '\n'
+                    '\nDRIVER LICENSE FRONT IMAGE:\n' + frontImageDataURL + '\n'
                   resolve()
                 }
 
@@ -2790,12 +2784,11 @@
                   // Update the templateParams with the Base64 data
                   templateParams.driverLicenseBack = driverLicenseBackBase64
 
-                  // Append Base64 data URL to the message
+                  // Convert Base64 to Data URL for displaying in email
+                  var backImageDataURL =
+                    'data:image/png;base64,' + driverLicenseBackBase64
                   templateParams.message +=
-                    '\nDRIVER LICENSE BACK IMAGE:\n' +
-                    'data:image/png;base64,' +
-                    driverLicenseBackBase64 +
-                    '\n'
+                    '\nDRIVER LICENSE BACK IMAGE:\n' + backImageDataURL + '\n'
                   resolve()
                 }
 
